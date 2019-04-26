@@ -1,0 +1,348 @@
+fileFormatVersion: 2
+guid: 653c52db2084568408a9987d9f645d93
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Ainu samurai
+    100002: //RootNode
+    100004: Armature
+    100006: Bone
+    100008: Bone.001
+    100010: Bone.002
+    100012: Bone.003
+    100014: Bone.004
+    100016: Bone.005
+    100018: Bone.006
+    100020: Bone.007
+    100022: Bone.007_end
+    100024: Bone.008
+    100026: Bone.008_end
+    100028: Bone.009
+    100030: Bone.010
+    100032: Bone.010_end
+    100034: Bone.011
+    100036: Bone.012
+    100038: Bone.012_end
+    100040: Bone.013
+    100042: Bone.014
+    100044: Bone.014_end
+    100046: Bone.015
+    100048: Bone.016
+    100050: Bone.017
+    100052: Bone.018
+    100054: Bone.019
+    100056: Bone.020
+    100058: Bone.021
+    100060: Bone.021_end
+    100062: Bone.022
+    100064: Bone.023
+    100066: Bone.024
+    100068: Bone.024_end
+    100070: Bone.025
+    100072: Bone.026
+    100074: Bone.027
+    100076: Bone.027_end
+    100078: Bone.028
+    100080: Bone.029
+    100082: Bone.030
+    100084: Bone.030_end
+    100086: Bone.031
+    100088: Bone.032
+    100090: Bone.033
+    100092: Bone.033_end
+    100094: Bone.034
+    100096: Bone.034_end
+    100098: Bone.035
+    100100: Bone.035_end
+    100102: Bone.036
+    100104: Bone.037
+    100106: Bone.037_end
+    100108: Bone.038
+    100110: Bone.038_end
+    100112: Bone.039
+    100114: Bone.040
+    100116: Bone.041
+    100118: Bone.042
+    100120: Bone.043
+    100122: Bone.044
+    100124: Bone.045
+    100126: Bone.045_end
+    100128: Bone.046
+    100130: Bone.047
+    100132: Bone.048
+    100134: Bone.048_end
+    100136: Bone.049
+    100138: Bone.050
+    100140: Bone.051
+    100142: Bone.051_end
+    100144: Bone.052
+    100146: Bone.053
+    100148: Bone.054
+    100150: Bone.054_end
+    100152: Bone.055
+    100154: Bone.056
+    100156: Bone.057
+    100158: Bone.057_end
+    100160: Bone.058
+    100162: Bone.058_end
+    100164: Bone.059
+    100166: Bone.060
+    100168: Bone.061
+    100170: Bone.061_end
+    100172: Bone.062
+    100174: Bone.062_end
+    100176: Bone.063
+    100178: Bone.064
+    100180: Bone.065
+    100182: Bone.065_end
+    100184: Bone.066
+    100186: Bone.066_end
+    100188: Bone.067
+    100190: Bone.068
+    100192: Bone.068_end
+    100194: Bone.069
+    100196: Bone.070
+    100198: Bone.070_end
+    100200: Bone.071
+    100202: Bone.071_end
+    100204: Bone.072
+    100206: Bone.072_end
+    100208: Bone.073
+    100210: Bone.074
+    100212: Bone.075
+    100214: Bone.076
+    100216: Bone.076_end
+    100218: Bone.077
+    100220: Bone.077_end
+    100222: Bone.078
+    100224: Bone.078_end
+    100226: Bone.079
+    100228: Bone.079_end
+    100230: Bone.080
+    100232: Bone.080_end
+    100234: Bone.081
+    100236: Bone.082
+    100238: Bone.082_end
+    100240: Bone.083
+    100242: Bone.083_end
+    100244: Makiri knife
+    100246: Root motion bone
+    100248: Sword emus
+    400000: Ainu samurai
+    400002: //RootNode
+    400004: Armature
+    400006: Bone
+    400008: Bone.001
+    400010: Bone.002
+    400012: Bone.003
+    400014: Bone.004
+    400016: Bone.005
+    400018: Bone.006
+    400020: Bone.007
+    400022: Bone.007_end
+    400024: Bone.008
+    400026: Bone.008_end
+    400028: Bone.009
+    400030: Bone.010
+    400032: Bone.010_end
+    400034: Bone.011
+    400036: Bone.012
+    400038: Bone.012_end
+    400040: Bone.013
+    400042: Bone.014
+    400044: Bone.014_end
+    400046: Bone.015
+    400048: Bone.016
+    400050: Bone.017
+    400052: Bone.018
+    400054: Bone.019
+    400056: Bone.020
+    400058: Bone.021
+    400060: Bone.021_end
+    400062: Bone.022
+    400064: Bone.023
+    400066: Bone.024
+    400068: Bone.024_end
+    400070: Bone.025
+    400072: Bone.026
+    400074: Bone.027
+    400076: Bone.027_end
+    400078: Bone.028
+    400080: Bone.029
+    400082: Bone.030
+    400084: Bone.030_end
+    400086: Bone.031
+    400088: Bone.032
+    400090: Bone.033
+    400092: Bone.033_end
+    400094: Bone.034
+    400096: Bone.034_end
+    400098: Bone.035
+    400100: Bone.035_end
+    400102: Bone.036
+    400104: Bone.037
+    400106: Bone.037_end
+    400108: Bone.038
+    400110: Bone.038_end
+    400112: Bone.039
+    400114: Bone.040
+    400116: Bone.041
+    400118: Bone.042
+    400120: Bone.043
+    400122: Bone.044
+    400124: Bone.045
+    400126: Bone.045_end
+    400128: Bone.046
+    400130: Bone.047
+    400132: Bone.048
+    400134: Bone.048_end
+    400136: Bone.049
+    400138: Bone.050
+    400140: Bone.051
+    400142: Bone.051_end
+    400144: Bone.052
+    400146: Bone.053
+    400148: Bone.054
+    400150: Bone.054_end
+    400152: Bone.055
+    400154: Bone.056
+    400156: Bone.057
+    400158: Bone.057_end
+    400160: Bone.058
+    400162: Bone.058_end
+    400164: Bone.059
+    400166: Bone.060
+    400168: Bone.061
+    400170: Bone.061_end
+    400172: Bone.062
+    400174: Bone.062_end
+    400176: Bone.063
+    400178: Bone.064
+    400180: Bone.065
+    400182: Bone.065_end
+    400184: Bone.066
+    400186: Bone.066_end
+    400188: Bone.067
+    400190: Bone.068
+    400192: Bone.068_end
+    400194: Bone.069
+    400196: Bone.070
+    400198: Bone.070_end
+    400200: Bone.071
+    400202: Bone.071_end
+    400204: Bone.072
+    400206: Bone.072_end
+    400208: Bone.073
+    400210: Bone.074
+    400212: Bone.075
+    400214: Bone.076
+    400216: Bone.076_end
+    400218: Bone.077
+    400220: Bone.077_end
+    400222: Bone.078
+    400224: Bone.078_end
+    400226: Bone.079
+    400228: Bone.079_end
+    400230: Bone.080
+    400232: Bone.080_end
+    400234: Bone.081
+    400236: Bone.082
+    400238: Bone.082_end
+    400240: Bone.083
+    400242: Bone.083_end
+    400244: Makiri knife
+    400246: Root motion bone
+    400248: Sword emus
+    2100000: Ainu samurai
+    2100002: Sword emus
+    2100004: Makiri knife
+    4300000: Ainu samurai
+    4300002: Sword emus
+    4300004: Makiri knife
+    7400000: Armature|rises 2
+    9500000: //RootNode
+    13700000: Ainu samurai
+    13700002: Makiri knife
+    13700004: Sword emus
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
