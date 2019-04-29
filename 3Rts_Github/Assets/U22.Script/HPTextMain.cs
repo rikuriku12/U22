@@ -15,13 +15,13 @@ public class HPTextMain : MonoBehaviour {
         cs = Php.GetComponent<PlayerController>();
         PhpUI = GameObject.Find("HP");
         HPtext = PhpUI.GetComponent<TextMeshProUGUI>();
-        int Php1 = cs.Hp;
+        //int Php1 = cs.Hp;
     }
 	
 	// Update is called once per frame
 
 	void Update () {
-        int Php1 = cs.Hp;
-        HPtext.text = Php1.ToString();
+        //int Php1 = cs.Hp;
+        //HPtext.text = Php1.ToString();
     }
 }

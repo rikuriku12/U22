@@ -41,11 +41,11 @@ public class ChangeEquip : MonoBehaviour
             //Gun = GameObject.FindWithTag("gun");
             if (Sword)
             {
-                playercontroller.weapon = 2;
+                //playercontroller.weapon = 2;
             }
             else
             {
-                playercontroller.weapon = 1;
+                //playercontroller.weapon = 1;
             }
         }
     }
