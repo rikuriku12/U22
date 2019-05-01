@@ -46,18 +46,18 @@ public class CameraController : MonoBehaviour
         {
             //Cameraの角度にマウスからとった値を入れる
             transform.eulerAngles += new Vector3(
-            Input.GetAxis("Mouse Y")/*("R Stick V")*/ * rotate_speed,
-            Input.GetAxis("Mouse X")/*("R Stick H")*/ * rotate_speed
+            Input.GetAxis/*("Mouse Y")*/("R Stick V") * rotate_speed,
+            Input.GetAxis/*("Mouse X")*/("R Stick H") * rotate_speed
             , 0);
         }
-        else
+        /*else
         {
             //Cameraの角度にマウスからとった値を入れる
             transform.eulerAngles += new Vector3(
             Input.GetAxis("R Stick V") * rotate_speed,
             Input.GetAxis("R Stick H") * rotate_speed
             , 0);
-        }
+        }*/
         //X軸の角度
         float angleX = transform.eulerAngles.x;
         //X軸の値を180度超えたら360引くことで制限しやすくする

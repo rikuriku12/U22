@@ -43,14 +43,15 @@ public class PlayerController : MonoBehaviour
         stateInfo = animCon.GetCurrentAnimatorStateInfo(0);
         if ((ConNum[0] == ""))
         {
-            inputHorizontal = Input.GetAxisRaw("Horizontal");// Input.GetAxisRaw("L Stick H");
-            inputVertical = Input.GetAxisRaw("Vertical");// Input.GetAxisRaw("L Stick V");
+            inputHorizontal = /*Input.GetAxisRaw("Horizontal");*/ Input.GetAxisRaw("L Stick H");
+            inputVertical = /*Input.GetAxisRaw("Vertical");*/ Input.GetAxisRaw("L Stick V");
         }
-        else
+        /*else
         {
             inputHorizontal = Input.GetAxisRaw("L Stick H");
             inputVertical = Input.GetAxisRaw("L Stick V");
         }
+        */
         Move();
         Weapon();
     }
