@@ -18,7 +18,8 @@ public class NaviLongEnemy : MonoBehaviour
 
     private bool npc_Flag;// プレイヤーNPCをターゲットにするフラグ
 
-    float agentDistance;// プレイヤー、敵間の距離
+    private float agentDistance;// プレイヤー、敵間の距離
+    private float towerDistance;// プレイヤー、タワー間の距離
     [SerializeField] float plyerDistance = 10f;// プレイヤーを検知する距離
     [SerializeField] float stopDistance = 5f;// 停止距離
 
@@ -42,7 +43,8 @@ public class NaviLongEnemy : MonoBehaviour
     void Update()
     {
         //停止距離より離れていたら
-        if (!(agentDistance <= stopDistance))
+        if (!(agentDistance <= stopDistance 
+            && towerDistance <= stopDistance))
         {
             // 走るアニメーションの再生
             e_Animator.SetBool("IsRun", true);
@@ -61,7 +63,7 @@ public class NaviLongEnemy : MonoBehaviour
                 // 停止距離になったら
                 if (agentDistance <= stopDistance)
                 {
-                    //攻撃関数
+                    //攻撃
                     ArrowAttack();
                 }
                 else
@@ -74,12 +76,14 @@ public class NaviLongEnemy : MonoBehaviour
             {
                 //目的地をタワーに設定
                 targget = tower.transform;
+                searchTower();
             }
         }
         else if (npc_Flag == false)
         {
             //目的地をタワーに設定
             targget = tower.transform;
+            searchTower();
         }
 
         //t_Flagがたったら
@@ -104,6 +108,7 @@ public class NaviLongEnemy : MonoBehaviour
                 npc_Flag = false;
                 //目的地をタワーに
                 targget = tower.transform;
+                searchTower();
             }
         }
         //ターゲットが入っていたら
@@ -113,7 +118,7 @@ public class NaviLongEnemy : MonoBehaviour
             agent.SetDestination(targget.position);
         }
     }
-    
+
     // タグ付きのオブジェクトを探す    
     GameObject serchTag(GameObject nowObj, string tagName)
     {
@@ -142,6 +147,23 @@ public class NaviLongEnemy : MonoBehaviour
         return targetObj;
     }
 
+    /// <summary>
+    /// タワー検知、攻撃
+    /// </summary>
+    void searchTower()
+    {
+        towerDistance = Vector3.Distance(this.agent.transform.position,
+                                                tower.transform.position);
+        if (towerDistance <= stopDistance)
+        {
+            //攻撃
+            ArrowAttack();
+        }
+    }
+
+    /// <summary>
+    /// 攻撃関数
+    /// </summary>
     void ArrowAttack()
     {
         // 走るアニメーションの停止
@@ -149,11 +171,13 @@ public class NaviLongEnemy : MonoBehaviour
         // Naviを切る
         agent.GetComponent<NavMeshAgent>().isStopped = true;
         //プレイヤーの方向を向く
-        var aim = this.player.transform.position - this.transform.position;
+        var aim = this.targget.transform.position - this.transform.position;
         var look = Quaternion.LookRotation(aim);
         this.transform.localRotation = look;
         //攻撃アニメーションの再生
         e_Animator.SetTrigger("IsAttack");
     }
+
+    
 }
 
