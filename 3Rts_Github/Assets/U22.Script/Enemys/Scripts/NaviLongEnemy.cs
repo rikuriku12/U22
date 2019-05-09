@@ -68,7 +68,7 @@ public class NaviLongEnemy : MonoBehaviour
                 }
                 else
                 {
-                    // Naviを切る
+                    // NaviをON
                     agent.GetComponent<NavMeshAgent>().isStopped = false;
                 }
             }
@@ -158,6 +158,11 @@ public class NaviLongEnemy : MonoBehaviour
         {
             //攻撃
             ArrowAttack();
+        }
+        else
+        {
+            // Naviを切る
+            agent.GetComponent<NavMeshAgent>().isStopped = false;
         }
     }
 
