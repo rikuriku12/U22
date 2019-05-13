@@ -57,11 +57,11 @@ public class TurretSet : MonoBehaviour
         cooltime++;
         if (cooltime >= 30)
         {
-            if (Input.GetButton("L1"))
+            if (Input.GetButton("L1") || Input.GetKey("z"))
             {
 
 
-                if (/*Input.GetMouseButtonDown(0) || */Input.GetAxis("ArrowH") > 0&&Setcount<SetLimit)//※3
+                if ((Input.GetKeyDown("x") ||Input.GetButtonDown("joystick X"))&&Setcount<SetLimit)//※3
                 {
                     StartCoroutine("Turret");//※3
                     Setcount++;
