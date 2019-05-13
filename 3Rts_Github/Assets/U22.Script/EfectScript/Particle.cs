@@ -12,7 +12,7 @@ public class Particle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //particle.Stop();  //最初は止める
+        particle.Stop();  //最初は止める
 
     }
 
@@ -428,11 +428,11 @@ public class Particle : MonoBehaviour
 
         //{slash-3のエフェクト}
 
-        par = GameObject.Find("Player22");
+        /*par = GameObject.Find("Lady Samurai");
         cs = par.GetComponent<ccc>();
         flagpart = cs.flag;
-
-        if (Input.GetKey("m"))//mボタンで
+        */
+        if (Input.GetButton("joystick X"))//mボタンで
         {
             particle.Play();
         }
