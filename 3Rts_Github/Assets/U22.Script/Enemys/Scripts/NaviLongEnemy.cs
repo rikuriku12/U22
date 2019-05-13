@@ -33,7 +33,7 @@ namespace Game.Enemy
             npc_Flag = false;
 
             agent = gameObject.GetComponent<NavMeshAgent>();//NaviMeshAgentのコンポーネントを取得
-            tower = GameObject.FindWithTag("Towe");// タワーを取得
+            tower = GameObject.FindWithTag("Tower");// タワーを取得
             player = GameObject.FindWithTag("Player");// プレイヤーを取得
                                                       //タワーがあれば
             if (tower)

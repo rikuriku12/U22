@@ -1028,7 +1028,7 @@ GameObject:
   - component: {fileID: 906454478757145253}
   m_Layer: 0
   m_Name: KyudoArchery
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   e_Animator: {fileID: 906454477965281955}
   plyerDistance: 10
-  stopDistance: 5
+  stopDistance: 3
 --- !u!1 &906454477974780155
 GameObject:
   m_ObjectHideFlags: 0
