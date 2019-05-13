@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
     private void Weapon()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("joystick X"))
+        if ((Input.GetMouseButtonDown(0)&& !Input.GetKeyDown("z")) || ((Input.GetButtonDown("joystick X"))&&!Input.GetButton("L1"))
         && !animCon.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             animCon.SetBool("Attack", true);

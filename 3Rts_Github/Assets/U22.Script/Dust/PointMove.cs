@@ -41,21 +41,21 @@ public class PointMove : MonoBehaviour
         //meshrenderer.material.color = new Color(0, 0, 0, 0.0f);//常時ポイント透明化
         this.GetComponent<Renderer>().material = _Material[0];
 
-        SetPointObject = GameObject.Find("Player");
+        SetPointObject = GameObject.FindWithTag("Player");
         TurretSet2 = SetPointObject.GetComponent<TurretSet>();
         SLim = TurretSet2.SetLimit;
         Scount = TurretSet2.Setcount;
 
         Transform mytransform = this.transform;
 
-         if (Input.GetAxis("R Stick V") < 0 && Count<= 10)
-         {
-            transform.position += transform.forward * speed * Time.deltaTime;
-            Count++;
+         //if (Input.GetAxis("R Stick V") < 0 && Count<= 10)
+         //{
+         //   transform.position += transform.forward * speed * Time.deltaTime;
+         //   Count++;
                    
-         }
+         //}
 
-        if (Input.GetButton("L1"))
+        if (Input.GetButton("L1")|| Input.GetKey("z"))
         {
             SLim = TurretSet2.SetLimit;
             Scount = TurretSet2.Setcount;
@@ -63,24 +63,22 @@ public class PointMove : MonoBehaviour
             {
                 this.GetComponent<Renderer>().material = _Material[2];
                 //meshrenderer.material.color = Color.red; ;
-                Debug.Log("めめめーん");
             }
             //meshrenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);//L1ボタンを押した時だけセットポイントを可視化
            else
             {
                 this.GetComponent<Renderer>().material = _Material[1];
-                Debug.Log("めーん");
             }
 
         }
 
        
-        if (Input.GetAxis("R Stick V") > 0 && Count>=2)
-        {
-            transform.position -= transform.forward * speed * Time.deltaTime;
-            Count--;
+        //if (Input.GetAxis("R Stick V") > 0 && Count>=2)
+        //{
+        //    transform.position -= transform.forward * speed * Time.deltaTime;
+        //    Count--;
                  
-        }
+        //}
         //}
     }
 }
