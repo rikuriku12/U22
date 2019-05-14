@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p_Animator: {fileID: 95251065718772562}
   plyerDistance: 10
-  stopDistance: 5
+  stopDistance: 2
 --- !u!1 &1699483060181288
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,6 +36,7 @@ public class NaviPlayerNPC : MonoBehaviour
         {
             //目的地をタワーに
             targget = tower.transform;
+            p_Animator.SetBool("IsRun", true);
         }
     }
 
@@ -106,6 +107,7 @@ public class NaviPlayerNPC : MonoBehaviour
             }
             //目的地をタワーに設定
             targget = tower.transform;
+            p_Animator.SetBool("IsRun", true);
         }
 
         // nearObjがあれば
@@ -119,6 +121,7 @@ public class NaviPlayerNPC : MonoBehaviour
         {
             // エージェント
             agent.SetDestination(targget.position);
+
         }
     }
     
