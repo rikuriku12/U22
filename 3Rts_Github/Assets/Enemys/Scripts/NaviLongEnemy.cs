@@ -16,13 +16,13 @@ namespace Game.Enemy
         private GameObject tower;// タワー
         private GameObject player;// プレイヤー
         private Transform targget;// 目的地
-        private GameObject nearObj;// 近くの特定のタグ付きオブジェクト
+        private GameObject nearNpc;// 近くの特定のタグ付きオブジェクト
 
-        private bool npc_Flag;// プレイヤーNPCをターゲットにするフラグ
+        
 
         private float agentDistance;// プレイヤー、敵間の距離
         private float towerDistance;// 敵、タワー間の距離
-        private float playerNpcDistance;// 敵、プレイヤーのNPC間の距離
+        private float npcDistance;// 敵、プレイヤーのNPC間の距離
         [SerializeField] float plyerDistance = 10f;// プレイヤーを検知する距離
         [SerializeField] float stopDistance = 5f;// 停止距離
 
@@ -30,12 +30,13 @@ namespace Game.Enemy
 
         void Start()
         {
-            npc_Flag = false;
+            
 
             agent = gameObject.GetComponent<NavMeshAgent>();//NaviMeshAgentのコンポーネントを取得
-            tower = GameObject.FindWithTag("Towe");// タワーを取得
+            tower = GameObject.FindWithTag("Tower");// タワーを取得
             player = GameObject.FindWithTag("Player");// プレイヤーを取得
-                                                      //タワーがあれば
+            
+            //タワーがあれば
             if (tower)
             {
                 //目的地をタワーに
@@ -52,75 +53,80 @@ namespace Game.Enemy
                 // 走るアニメーションの再生
                 e_Animator.SetBool("IsRun", true);
             }
+            // nearObjがあれば
+            if (nearNpc)
+            {
+                targget = nearNpc.transform;
+                searchNPC();
+            }
+            //プレイヤーのNPCがいなかったら
+            if (!nearNpc)
+            {
+                // Naviを動かす
+                agent.GetComponent<NavMeshAgent>().isStopped = false;
+
+                searchTime += Time.deltaTime;
+
+                if (searchTime >= 1.0f)
+                {
+                    //最も近かった、"Player_NPC"タグのオブジェクトを取得
+                    nearNpc = serchTag(gameObject, "Player_NPC");
+                    //経過時間を初期化
+                    searchTime = 0;
+                }
+
+            }
+
             if (player)// playerの中にオブジェクトが入っていたら
             {
                 // EnemyとPlayerの距離
                 agentDistance = Vector3.Distance(this.agent.transform.position,
                                                     player.transform.position);
                 // プレイヤーとの距離が近くなり、npcフラグオフのとき
-                if (agentDistance <= plyerDistance && npc_Flag == false)
+                if (agentDistance <= plyerDistance)
                 {
-                    // 目的地をプレイヤに設定
-                    targget = player.transform;
+                    if (agentDistance <= npcDistance)
+                    {
+                        // 目的地をプレイヤに設定
+                        targget = player.transform;
+                        // 停止距離になったら
+                        if (agentDistance <= stopDistance)
+                        {
+                            //攻撃
+                            ArrowAttack();
+                        }
+                        else
+                        {
+                            // NaviをON
+                            agent.GetComponent<NavMeshAgent>().isStopped = false;
 
-                    // 停止距離になったら
-                    if (agentDistance <= stopDistance)
-                    {
-                        //攻撃
-                        ArrowAttack();
+                        }
                     }
-                    else
-                    {
-                        // NaviをON
-                        agent.GetComponent<NavMeshAgent>().isStopped = false;
-                    }
+
                 }
-                else
+
+                else if (plyerDistance <= npcDistance && plyerDistance <= agentDistance)
                 {
                     //目的地をタワーに設定
                     targget = tower.transform;
                     searchTower();
                 }
             }
-            else if (npc_Flag == false)
+            else
             {
                 //目的地をタワーに設定
                 targget = tower.transform;
                 searchTower();
             }
 
-            //npcフラグがたったら
-            if (npc_Flag == true)
-            {
-                searchTime += Time.deltaTime;
 
-                if (searchTime >= 1.0f)
-                {
-                    //最も近かった、"Player_NPC"タグのオブジェクトを取得
-                    nearObj = serchTag(gameObject, "Player_NPC");
-                    //経過時間を初期化
-                    searchTime = 0;
-                }
-                // nearObjがあれば
-                if (nearObj)
-                {
-                    targget = nearObj.transform;
-                    searchNPC();
 
-                }
-                else // nearObjがなかったら
-                {
-                    npc_Flag = false;
-                    //目的地をタワーに
-                    targget = tower.transform;
-                    searchTower();
-                }
-            }
             //ターゲットが入っていたら
             if (targget)
             {
                 // エージェント
                 agent.SetDestination(targget.position);
+         
             }
         }
 
@@ -172,16 +178,16 @@ namespace Game.Enemy
         /// </summary>
         void searchNPC()
         {
-            playerNpcDistance = Vector3.Distance(this.agent.transform.position,
-                                                    tower.transform.position);
-            if (playerNpcDistance <= stopDistance)
+            npcDistance = Vector3.Distance(this.agent.transform.position,
+                                                    nearNpc.transform.position);
+            if (npcDistance <= stopDistance)
             {
                 //攻撃
                 ArrowAttack();
             }
             else
             {
-                // Naviを切る
+                // Naviを動かす
                 agent.GetComponent<NavMeshAgent>().isStopped = false;
             }
         }

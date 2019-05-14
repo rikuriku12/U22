@@ -34,7 +34,7 @@ namespace Game.Enemy
         {
             var bulletInstance = GameObject.Instantiate(bullet, muzzle.transform.position, Quaternion.Euler(90, this.transform.rotation.y, 0)) as GameObject;
             bulletInstance.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * bulletSpeed);
-            Debug.Log("射ね");
+            
             countTime = 0;
         }
     }
