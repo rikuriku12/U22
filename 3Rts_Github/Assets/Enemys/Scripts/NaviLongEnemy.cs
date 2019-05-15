@@ -8,30 +8,20 @@ namespace Game.Enemy
     public class NaviLongEnemy : MonoBehaviour
     {
         NavMeshAgent agent;
-
-        [SerializeField] Animator e_Animator;
-
-        Vector3 position;
-
+        public Animator e_Animator;
         private GameObject tower;// タワー
         private GameObject player;// プレイヤー
         private Transform targget;// 目的地
-        private GameObject nearNpc;// 近くの特定のタグ付きオブジェクト
-
-        
-
+        private GameObject nearNpc;// 近くの特定のタグ付きオブジェクト        
         private float agentDistance;// プレイヤー、敵間の距離
         private float towerDistance;// 敵、タワー間の距離
         private float npcDistance;// 敵、プレイヤーのNPC間の距離
         [SerializeField] float plyerDistance = 10f;// プレイヤーを検知する距離
-        [SerializeField] float stopDistance = 5f;// 停止距離
-
-        private float searchTime = 0;//serchTagの探す時間
-
+        [SerializeField] float stopDistance = 5f;// 停止距離        
+                                                 //serchTagの探す時間
+        private float searchTime = 0;
         void Start()
-        {
-            
-
+        {         
             agent = gameObject.GetComponent<NavMeshAgent>();//NaviMeshAgentのコンポーネントを取得
             tower = GameObject.FindWithTag("Tower");// タワーを取得
             player = GameObject.FindWithTag("Player");// プレイヤーを取得
@@ -46,6 +36,7 @@ namespace Game.Enemy
 
         void Update()
         {
+
             //停止距離より離れていたら
             if (!(agentDistance <= stopDistance
                 && towerDistance <= stopDistance))
@@ -53,24 +44,25 @@ namespace Game.Enemy
                 // 走るアニメーションの再生
                 e_Animator.SetBool("IsRun", true);
             }
+
             // nearObjがあれば
             if (nearNpc)
             {
                 targget = nearNpc.transform;
                 searchNPC();
             }
-            //プレイヤーのNPCがいなかったら
-            if (!nearNpc)
+            else//プレイヤーのNPCがいなかったら
             {
                 // Naviを動かす
                 agent.GetComponent<NavMeshAgent>().isStopped = false;
-
+                
+                // サーチ時間
                 searchTime += Time.deltaTime;
 
                 if (searchTime >= 1.0f)
                 {
                     //最も近かった、"Player_NPC"タグのオブジェクトを取得
-                    nearNpc = serchTag(gameObject, "Player_NPC");
+                    nearNpc = SerchTag(gameObject, "Player_NPC");
                     //経過時間を初期化
                     searchTime = 0;
                 }
@@ -119,8 +111,6 @@ namespace Game.Enemy
                 searchTower();
             }
 
-
-
             //ターゲットが入っていたら
             if (targget)
             {
@@ -131,7 +121,7 @@ namespace Game.Enemy
         }
 
         // タグ付きのオブジェクトを探す    
-        GameObject serchTag(GameObject nowObj, string tagName)
+        GameObject SerchTag(GameObject nowObj, string tagName)
         {
             float tmpDis = 0;           //距離用一時変数
             float nearDis = 0;          //最も近いオブジェクトの距離        
