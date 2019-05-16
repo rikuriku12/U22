@@ -16,13 +16,15 @@ public class PlayerController : MonoBehaviour
     //　ジャンプ力
     [SerializeField]
     private float moveSpeed;
-
+    [SerializeField]
+    private float boost;
     public Animator animCon;  //  アニメーションするための変数
     public AnimatorStateInfo stateInfo;
 
     //コントローラーのための配列
     string[] ConNum;
 
+    private float MoveSpeedSave;
     private void Start()
     {
         animCon = GetComponent<Animator>(); // アニメーターのコンポーネントを参照する
@@ -109,12 +111,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "DashCollider")
+        if (other.gameObject.tag == "DashCollider")
         {
-            //moveSpeed  ;
+            moveSpeed += boost;
         }
     }
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "DashCollider")
+        {
+            moveSpeed -= boost;
+        }
+    }
 }
+    
+
