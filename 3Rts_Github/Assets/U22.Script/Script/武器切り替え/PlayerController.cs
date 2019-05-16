@@ -109,12 +109,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.tag == "DashCollider")
         {
-            moveSpeed *= 2;
+            //moveSpeed  ;
         }
     }
-    */
+    
 }
