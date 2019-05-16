@@ -8,6 +8,7 @@ TagManager:
   - EnemyTower
   - Tower
   - e_Towe
+  - DashCollider
   layers:
   - Default
   - TransparentFX

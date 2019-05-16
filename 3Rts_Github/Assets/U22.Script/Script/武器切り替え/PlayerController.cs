@@ -108,4 +108,13 @@ public class PlayerController : MonoBehaviour
             animCon.SetBool("Attack", true);
         }
     }
+
+    /*private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "DashCollider")
+        {
+            moveSpeed *= 2;
+        }
+    }
+    */
 }

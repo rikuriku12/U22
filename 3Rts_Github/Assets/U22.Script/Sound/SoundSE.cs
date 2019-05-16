@@ -6,12 +6,13 @@ public class SoundSE : MonoBehaviour
 {
     //格納変数
     public AudioClip Sound1;
-    public AudioClip Sound2;
+    /*public AudioClip Sound2;
     public AudioClip Sound3;
     public AudioClip Sound4;
     public AudioClip Sound5;
     public AudioClip Sound6;
     public AudioClip Sound7;
+    */
 
     AudioSource audioSource;
 
@@ -26,12 +27,12 @@ public class SoundSE : MonoBehaviour
     void Update()
     {
         //キーが押されたら音声ファイルの再生
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetButton("joystick X"))
         {
             audioSource.PlayOneShot(Sound1);
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        /*if (Input.GetKeyDown(KeyCode.S))
         {
             audioSource.PlayOneShot(Sound2);
         }
@@ -60,5 +61,7 @@ public class SoundSE : MonoBehaviour
         {
             audioSource.PlayOneShot(Sound7);
         }
+        */
     }
+
 }
