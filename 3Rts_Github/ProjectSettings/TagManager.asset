@@ -4,21 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
   - Tower
   - Player_NPC
   - Tower_center
-  - Tower_rigth
   - Tower_left
-=======
-  - Enemy
-  - EnemyTower
-  - Tower
-  - e_Towe
-  - DashCollider
-  - AllyCore
-  - EnemyCore
->>>>>>> dev
+  - Tower_rigth
+  - AllyCore_C
   layers:
   - Default
   - TransparentFX
@@ -28,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - 
   - 
   - 
   - 

@@ -26,12 +26,10 @@ namespace Game.Enemy
         {
             change = false;
             agent = gameObject.GetComponent<NavMeshAgent>();//NaviMeshAgentのコンポーネントを取得
-<<<<<<< HEAD:3Rts_Github/Assets/Enemys/Scripts/NaviLongEnemy_center.cs
+
             msterTower = GameObject.FindWithTag("Tower");// タワーを取得
-            middleTower = GameObject.FindWithTag("Tower_center");// 中間タワーを取得
-=======
-            tower = GameObject.FindWithTag("AllyCore");// タワーを取得
->>>>>>> dev:3Rts_Github/Assets/U22.Script/Enemys/Scripts/NaviLongEnemy.cs
+            middleTower = GameObject.FindWithTag("AllyCore_C");// 中間タワーを取得
+            
             player = GameObject.FindWithTag("Player");// プレイヤーを取得
 
             //タワーがあれば
