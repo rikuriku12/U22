@@ -59,10 +59,12 @@ namespace Game.Enemy
                 // Naviを動かす
                 agent.GetComponent<NavMeshAgent>().isStopped = false;
 
-                // サーチ時間
+                // サーチ時間カウント
                 searchTime += Time.deltaTime;
+                //サーチ時間
+                float limitTime = 1.0f;
 
-                if (searchTime >= 1.0f)
+                if (searchTime >= limitTime)
                 {
                     //最も近かった、"Player_NPC"タグのオブジェクトを取得
                     nearNpc = SerchTag(gameObject, "Player_NPC");
