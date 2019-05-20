@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Tower
   - Player_NPC
+  - Tower_center
+  - Tower_rigth
+  - Tower_left
   layers:
   - Default
   - TransparentFX

@@ -17,7 +17,7 @@ namespace Game.Enemy
         //    // プレイヤーに当たったら
         //    if (collider.gameObject.tag == "Player" 
         //        || collider.gameObject.tag == "Towe"
-        //        || collider.gameObject.tag == "Turret")
+        //        || collider.gameObject.tag == "PlayerNpc")
         //    { 
         //        // 弾が消える
         //        Destroy(gameObject);

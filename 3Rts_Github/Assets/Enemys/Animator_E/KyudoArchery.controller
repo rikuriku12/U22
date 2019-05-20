@@ -60,7 +60,7 @@ AnimatorStateMachine:
     m_Position: {x: 432, y: 156, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102037897045631262}
-    m_Position: {x: 624, y: -84, z: 0}
+    m_Position: {x: 636, y: -84, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102965462453772922}
     m_Position: {x: 312, y: -72, z: 0}
@@ -277,7 +277,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Atk__Kyudo
+  m_Name: Atk_Kyudo
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
