@@ -22,12 +22,12 @@ public class THP : MonoBehaviour
     {
         if (HP <= 0)
         {
-            turretSet.Setcount--;
+            //turretSet.Setcount--;
             Destroy(gameObject.transform.root.gameObject); 
         }
         //TS = GameObject.Find("Player");
         //turretSet = TS.GetComponent<TurretSet>();
-        int SetC = turretSet.Setcount;
+        //int SetC = turretSet.Setcount;
     }
 
     public void OnCollisionEnter(Collision collision)

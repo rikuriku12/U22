@@ -16,13 +16,15 @@ public class PlayerController : MonoBehaviour
     //　ジャンプ力
     [SerializeField]
     private float moveSpeed;
-
+    [SerializeField]
+    private float boost;
     public Animator animCon;  //  アニメーションするための変数
     public AnimatorStateInfo stateInfo;
 
     //コントローラーのための配列
     string[] ConNum;
 
+    private float MoveSpeedSave;
     private void Start()
     {
         animCon = GetComponent<Animator>(); // アニメーターのコンポーネントを参照する
@@ -102,10 +104,28 @@ public class PlayerController : MonoBehaviour
 
     private void Weapon()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("joystick X"))
+        if ((Input.GetMouseButtonDown(0)&& !Input.GetKeyDown("z")) || ((Input.GetButtonDown("joystick X"))&&!Input.GetButton("L1"))
         && !animCon.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             animCon.SetBool("Attack", true);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "DashCollider")
+        {
+            moveSpeed += boost;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "DashCollider")
+        {
+            moveSpeed -= boost;
+        }
+    }
 }
+    
+
