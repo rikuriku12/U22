@@ -9,6 +9,8 @@ TagManager:
   - Tower
   - e_Towe
   - DashCollider
+  - AllyCore
+  - EnemyCore
   layers:
   - Default
   - TransparentFX
