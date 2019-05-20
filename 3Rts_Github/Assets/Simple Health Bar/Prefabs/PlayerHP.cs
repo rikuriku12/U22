@@ -4,38 +4,30 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
-{
-    Slider hpslider;
-    [SerializeField]float nowHp;
+{ 
+    [SerializeField] float nowHp;
+    [SerializeField]private Image Hp;
 
     // Start is called before the first frame update
     void Start()
     {
-        hpslider = GetComponent<Slider>();
-
-        float maxHp = 1000f;
-        nowHp = 1000f;
-
-        //スライダー最大値の設定
-        hpslider.maxValue = maxHp;
-
-        //スライダーの現在地設定
-        hpslider.value = nowHp;
-
+         //nowHp = hoge.GetnowHp();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
-        //スライダーの現在地設定
-        //hpslider.value = nowHp;
+        //Hp.fillAmount = nowHp;
 
         //spaceを押したらHPが減る
         if (Input.GetKeyDown("space"))
         {
-            hpslider.value -= 20f;
+            Hp.fillAmount -= 0.01f;
         }
     }
+    /// <summary>
+    /// 切り取り用
+    /// </summary>
     // 外部からの読み取り用.
     public float GetnowHp()
     {
