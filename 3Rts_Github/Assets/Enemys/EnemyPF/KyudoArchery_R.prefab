@@ -77,8 +77,8 @@ GameObject:
   - component: {fileID: 8489246795312819811}
   - component: {fileID: 8744727621074775282}
   m_Layer: 0
-  m_Name: KyudoArchery (1)
-  m_TagString: Untagged
+  m_Name: KyudoArchery_R
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

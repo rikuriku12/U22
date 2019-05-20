@@ -31,11 +31,16 @@ namespace Game.Enemy
             player = GameObject.FindWithTag("Player");// プレイヤーを取得
 
             //タワーがあれば
-            if (msterTower)
+            if (middleTower)
+            {
+                //目的地をタワーに
+                targget = middleTower.transform;
+            }
+            /*if (msterTower)
             {
                 //目的地をタワーに
                 targget = msterTower.transform;
-            }
+            }*/
         }
 
         void Update()

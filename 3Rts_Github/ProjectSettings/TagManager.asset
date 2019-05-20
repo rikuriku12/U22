@@ -10,6 +10,10 @@ TagManager:
   - Tower_left
   - Tower_rigth
   - AllyCore_C
+  - DashCollider
+  - EnemyCore
+  - AllyCore
+  - Enemy
   layers:
   - Default
   - TransparentFX
