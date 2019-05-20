@@ -18,7 +18,7 @@ public class DeleatTU : MonoBehaviour
     {
         TS = GameObject.Find("Player");
         turretSet = TS.GetComponent<TurretSet>();
-        int SetC = turretSet.Setcount;
+        //int SetC = turretSet.Setcount;
     }
 
     public void OnTriggerExit(Collider other)
@@ -28,7 +28,7 @@ public class DeleatTU : MonoBehaviour
             
             GameObject Turret = other.gameObject;
             Destroy(Turret);
-            turretSet.Setcount--;
+           // turretSet.Setcount--;
         }
     }
 }
