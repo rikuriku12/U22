@@ -17,8 +17,8 @@ public class PointMove : MonoBehaviour
     
     TurretSet TurretSet2;
     public int SetLimit;
-    int SLim;
-    int Scount;
+    float SLim;
+    float Scost;
     GameObject SetPointObject;
 
     public Material[]  _Material;
@@ -26,7 +26,7 @@ public class PointMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // this.GetComponent<Renderer>().material = _Material[0];
+        this.GetComponent<Renderer>().material = _Material[0];
         PoszI = 0;
         PointForm = GameObject.Find("SetPoint");
        
@@ -37,14 +37,14 @@ public class PointMove : MonoBehaviour
     {
         PointForm = GameObject.Find("SetPoint");//セットポイントおぬじぇくとの取得
         
-        //meshrenderer = PointForm.GetComponent<MeshRenderer>();//セットポイントの外見の値の取得
+        meshrenderer = PointForm.GetComponent<MeshRenderer>();//セットポイントの外見の値の取得
         //meshrenderer.material.color = new Color(0, 0, 0, 0.0f);//常時ポイント透明化
-       // this.GetComponent<Renderer>().material = _Material[0];
+        this.GetComponent<Renderer>().material = _Material[0];
 
         SetPointObject = GameObject.FindWithTag("Player");
         TurretSet2 = SetPointObject.GetComponent<TurretSet>();
-        SLim = TurretSet2.SetLimit;
-        Scount = TurretSet2.Setcount;
+        SLim = TurretSet2.militaryforce;
+        Scost = TurretSet2.cost;
 
         Transform mytransform = this.transform;
 
@@ -57,17 +57,17 @@ public class PointMove : MonoBehaviour
 
         if (Input.GetButton("L1")|| Input.GetKey("z"))
         {
-            SLim = TurretSet2.SetLimit;
-            Scount = TurretSet2.Setcount;
-            if (Scount >= SLim)
+            //SLim = TurretSet2.SetLimit;
+            //Scount = TurretSet2.Setcount;
+            if (Scost >= SLim)
             {
-               // this.GetComponent<Renderer>().material = _Material[2];
+                this.GetComponent<Renderer>().material = _Material[2];
                 //meshrenderer.material.color = Color.red; ;
             }
             //meshrenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);//L1ボタンを押した時だけセットポイントを可視化
            else
             {
-                //this.GetComponent<Renderer>().material = _Material[1];
+                this.GetComponent<Renderer>().material = _Material[1];
             }
 
         }
