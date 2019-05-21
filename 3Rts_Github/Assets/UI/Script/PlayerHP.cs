@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
-{ 
+{
+    public int PHP;
     [SerializeField] float nowHp;
     [SerializeField]private Image Hp;
 
@@ -39,4 +40,8 @@ public class PlayerHP : MonoBehaviour
     {
         nowHp = _nowHp;
     }
+
+   
+
+    
 }

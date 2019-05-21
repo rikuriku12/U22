@@ -2010,6 +2010,7 @@ GameObject:
   - component: {fileID: 7785824343937279182}
   - component: {fileID: 4089949397195973589}
   - component: {fileID: 2583148825730088586}
+  - component: {fileID: 4904591584985556080}
   - component: {fileID: 1488556415108550055}
   m_Layer: 0
   m_Name: KyudoArchery_L
@@ -2108,6 +2109,19 @@ MonoBehaviour:
   muzzle: {fileID: 489670787633049599}
   bullet: {fileID: 1959729250425484, guid: 5187dfa4d8f19524e8bbf7c6894b7de7, type: 3}
   shootPower: 1000
+--- !u!114 &4904591584985556080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429771405862003093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d526d8ca41b6d4881ed2a4abac3c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 20
 --- !u!114 &1488556415108550055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2121,8 +2135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   e_Animator: {fileID: 5429771405852611535}
+  targget: {fileID: 0}
   plyerDistance: 10
   stopDistance: 5
+  change: 0
 --- !u!1 &5429771405862003095
 GameObject:
   m_ObjectHideFlags: 0
