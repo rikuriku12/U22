@@ -13,7 +13,7 @@ public class NaviPlayerNPC : MonoBehaviour
 
     private GameObject tower;// 敵タワー
     private GameObject enemy;// エネミー
-    private Transform targget;// 目的地
+    [SerializeField] private Transform targget;// 目的地
     private GameObject nearObj;// 近くの特定のタグ付きオブジェクト
 
     //private bool npc_Flag;// エネミーをターゲットにするフラグ
@@ -29,7 +29,7 @@ public class NaviPlayerNPC : MonoBehaviour
         //npc_Flag = false;
 
         agent = gameObject.GetComponent<NavMeshAgent>();//NaviMeshAgentのコンポーネントを取得
-        tower = GameObject.FindWithTag("e_Towe");// 敵タワーを取得
+        tower = GameObject.FindWithTag("EnemyCore");// 敵タワーを取得
         enemy = GameObject.FindWithTag("Enemy");// エネミーを取得
         //タワーがあれば
         if (tower)
@@ -37,6 +37,13 @@ public class NaviPlayerNPC : MonoBehaviour
             //目的地をタワーに
             targget = tower.transform;
             p_Animator.SetBool("IsRun", true);
+
+        }
+        if (targget)
+        {
+            // エージェント
+            agent.SetDestination(targget.position);
+
         }
     }
 
@@ -124,7 +131,7 @@ public class NaviPlayerNPC : MonoBehaviour
 
         }
     }
-    
+
     // タグ付きのオブジェクトを探す    
     GameObject serchTag(GameObject nowObj, string tagName)
     {

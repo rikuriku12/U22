@@ -999,7 +999,7 @@ GameObject:
   - component: {fileID: 3786838905710137538}
   m_Layer: 0
   m_Name: Mr Samurai
-  m_TagString: Untagged
+  m_TagString: Player_NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

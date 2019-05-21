@@ -12,7 +12,7 @@ namespace Game.Enemy
         private GameObject msterTower;// 本丸タワー
         private GameObject middleTower;// 中間タワー　
         private GameObject player;// プレイヤー
-        private Transform targget;// 目的地
+        [SerializeField] private Transform targget;// 目的地
         private GameObject nearNpc;// 近くの特定のタグ付きオブジェクト        
         private float agentDistance;// プレイヤー、敵間の距離
         private float towerDistance;// 敵、タワー間の距離
@@ -21,7 +21,7 @@ namespace Game.Enemy
         [SerializeField] private float plyerDistance = 10f;// プレイヤーを検知する距離
         [SerializeField] private float stopDistance = 5f;// 停止距離
         private float searchTime = 0;//serchTagの探す時間
-        bool change;//タワー変更フラグ
+        [SerializeField] bool change;//タワー変更フラグ
         void Start()
         {
             change = false;
@@ -83,37 +83,75 @@ namespace Game.Enemy
                 // EnemyとPlayerの距離
                 agentDistance = Vector3.Distance(this.agent.transform.position,
                                                     player.transform.position);
-                // プレイヤーとの距離が近くなり、npcフラグオフのとき
-                if (agentDistance <= plyerDistance && agentDistance <= npcDistance)
+                if (nearNpc)
                 {
-                    // 目的地をプレイヤに設定
-                    targget = player.transform;
-                    // 停止距離になったら
-                    if (agentDistance <= stopDistance)
+                    // プレイヤーとの距離が近くなり
+                    if (agentDistance <= plyerDistance && agentDistance <= npcDistance)
                     {
-                        //攻撃
-                        ArrowAttack();
+                        // 目的地をプレイヤに設定
+                        targget = player.transform;
+                        // 停止距離になったら
+                        if (agentDistance <= stopDistance)
+                        {
+                            //攻撃
+                            ArrowAttack();
+                        }
+                        else
+                        {
+                            // NaviをON
+                            agent.GetComponent<NavMeshAgent>().isStopped = false;
+                        }
                     }
-                    else
+
+                    else if (plyerDistance <= npcDistance && plyerDistance <= agentDistance)
                     {
-                        // NaviをON
-                        agent.GetComponent<NavMeshAgent>().isStopped = false;
+                        if (change == true)
+                        {
+                            // プレイヤーのタワーに設定
+                            targget = msterTower.transform;
+                        }
+                        else
+                        {
+                            // 目的地を中間タワーに設定
+                            targget = middleTower.transform;
+                        }
+                        AttackTower();
                     }
                 }
-
-                else if (plyerDistance <= npcDistance && plyerDistance <= agentDistance)
+                else
                 {
-                    if (change == true)
+                    // プレイヤーとの距離が近くなり
+                    if (agentDistance <= plyerDistance)
                     {
-                        // プレイヤーのタワーに設定
-                        targget = msterTower.transform;
+                        // 目的地をプレイヤに設定
+                        targget = player.transform;
+                        // 停止距離になったら
+                        if (agentDistance <= stopDistance)
+                        {
+                            //攻撃
+                            ArrowAttack();
+                        }
+                        else
+                        {
+                            // NaviをON
+                            agent.GetComponent<NavMeshAgent>().isStopped = false;
+                        }
                     }
-                    else
+
+                    else if (plyerDistance <= agentDistance)
                     {
-                        // 目的地を中間タワーに設定
-                        targget = middleTower.transform;
+                        if (change == true)
+                        {
+                            // プレイヤーのタワーに設定
+                            targget = msterTower.transform;
+                        }
+                        else
+                        {
+                            // 目的地を中間タワーに設定
+                            targget = middleTower.transform;
+                        }
+                        AttackTower();
                     }
-                    AttackTower();
                 }
             }
             else
@@ -134,16 +172,18 @@ namespace Game.Enemy
             middleTowerDistance = Vector3.Distance(this.agent.transform.position,
                 middleTower.transform.position);
 
-            if (middleTowerDistance <= stopDistance)
+            if ((middleTowerDistance <= stopDistance) && !(targget == msterTower.transform))
             {
                 change = true;
+                // プレイヤーのタワーに設定
+                targget = msterTower.transform;
             }
+
             //ターゲットが入っていたら
             if (targget)
             {
                 // エージェント
                 agent.SetDestination(targget.position);
-                Debug.Log(targget);
             }
         }
 

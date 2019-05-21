@@ -12,7 +12,7 @@ namespace Game.Enemy
         private GameObject middleTower;// タワー
         private GameObject msterTower;//間地点
         private GameObject player;// プレイヤー
-        private Transform targget;// 目的地
+        [SerializeField]private Transform targget;// 目的地
         private GameObject nearNpc;// 近くの特定のタグ付きオブジェクト        
         private float agentDistance;// プレイヤー、敵間の距離
         private float towerDistance;// 敵、本丸タワー間の距離
@@ -21,7 +21,7 @@ namespace Game.Enemy
         [SerializeField] private float plyerDistance = 10f;// プレイヤーを検知する距離
         [SerializeField] private float stopDistance = 5f;// 停止距離
 
-        bool change;//タワー変更フラグ
+        [SerializeField]bool change;//タワー変更フラグ
 
         private float searchTime = 0;//serchTagの探す時間
 
@@ -141,6 +141,8 @@ namespace Game.Enemy
             if (middleTowerDistance <= stopDistance)
             {
                 change = true;
+                // プレイヤーのタワーに設定
+                targget = msterTower.transform;
             }
 
 
