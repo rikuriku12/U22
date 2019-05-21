@@ -1069,10 +1069,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1691197125488954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17401638ae5363041a8f7a7e9b8487e5, type: 3}
+  m_Script: {fileID: 11500000, guid: e5ca2cebc99502d4ba9f08003e4c1ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   p_Animator: {fileID: 95251065718772562}
+  targget: {fileID: 0}
   plyerDistance: 10
   stopDistance: 5
 --- !u!1 &1699483060181288
