@@ -53,6 +53,13 @@ public class menu : MonoBehaviour
 
            
         }
+        if (Input.GetKeyDown("x"))
+        {
+            if (gameplay[i].name == "GamePlay")
+            {
+                SceneManager.LoadScene("Game");
+            }
+        }
 
        
     }

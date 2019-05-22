@@ -7,18 +7,22 @@ public class PlayerHP : MonoBehaviour
 {
     public int PHP;
     [SerializeField] float nowHp;
-    [SerializeField]private Image Hp;
-
+    [SerializeField] private Image Hp;
+    [SerializeField] GameObject Player;
+    PlayerStatus playerStatus;
+    float Maxhp;
     // Start is called before the first frame update
     void Start()
     {
-         //nowHp = hoge.GetnowHp();
+        //nowHp = hoge.GetnowHp();
+        playerStatus = Player.GetComponent<PlayerStatus>();
+        Maxhp = playerStatus.PHp;
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        //Hp.fillAmount = nowHp;
+        Hp.fillAmount = playerStatus.PHp / Maxhp;
 
         //spaceを押したらHPが減る
         if (Input.GetKeyDown("space"))
@@ -40,8 +44,4 @@ public class PlayerHP : MonoBehaviour
     {
         nowHp = _nowHp;
     }
-
-   
-
-    
 }
