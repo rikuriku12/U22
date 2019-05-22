@@ -18,6 +18,7 @@ TagManager:
   - P_Sword
   - NPC_Sword"
   - TowerBurret
+  - NPC_Sword
   layers:
   - Default
   - TransparentFX
