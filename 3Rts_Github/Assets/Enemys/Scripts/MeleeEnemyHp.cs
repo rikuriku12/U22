@@ -36,5 +36,9 @@ public class MeleeEnemyHp : MonoBehaviour
         {
             Hp -= 20;
         }
+        if (other.gameObject.tag == "P_Sword")
+        {
+            Hp -= 50;
+        }
     }
 }
