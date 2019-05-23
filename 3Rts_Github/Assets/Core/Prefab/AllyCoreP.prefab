@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8445747666551678341}
   - component: {fileID: 8445747666551678343}
-  - component: {fileID: 8445747666551678342}
+  - component: {fileID: 7972926281517840100}
   - component: {fileID: 8445747666551678344}
   m_Layer: 0
   m_Name: AllyCoreP
@@ -76,7 +76,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.75, y: 5.55, z: 1.59}
   m_Center: {x: 0.27, y: 3.17, z: 0}
---- !u!114 &8445747666551678342
+--- !u!114 &7972926281517840100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,10 +85,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8445747666551678340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a58b5f6ba0113542a2e94e1fa5c5c3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 410cb446f6fbac44bb80331b4b146b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyCoreHp: 100
+  AllyCoreHP: 100
 --- !u!54 &8445747666551678344
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 8951629416181777603, guid: 6e851ae1d50bf25498870b2a5760dcbf,
         type: 3}
       propertyPath: m_Name
-      value: EnemyCore
+      value: AllyCore
       objectReference: {fileID: 0}
     - target: {fileID: 8951629416181777603, guid: 6e851ae1d50bf25498870b2a5760dcbf,
         type: 3}

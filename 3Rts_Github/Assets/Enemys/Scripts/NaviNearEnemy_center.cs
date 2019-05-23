@@ -34,11 +34,16 @@ namespace Game.Enemy
             player = GameObject.FindWithTag("Player");// プレイヤーを取得
 
             //タワーがあれば
-            if (msterTower)
+            if (middleTower)
+            {
+                //目的地をタワーに
+                targget = middleTower.transform;
+            }
+            /*if (msterTower)
             {
                 //目的地をタワーに
                 targget = msterTower.transform;
-            }
+            }*/
         }
 
         void Update()
@@ -92,7 +97,11 @@ namespace Game.Enemy
                         if (agentDistance <= stopDistance)
                         {
                             //攻撃
+<<<<<<< HEAD
                             Attack();
+=======
+                            ArrowAttack();
+>>>>>>> e700522f0412e0e390979fe8b272d2ba456cd497
                         }
                         else
                         {
@@ -127,7 +136,11 @@ namespace Game.Enemy
                         if (agentDistance <= stopDistance)
                         {
                             //攻撃
+<<<<<<< HEAD
                             Attack();
+=======
+                            ArrowAttack();
+>>>>>>> e700522f0412e0e390979fe8b272d2ba456cd497
                         }
                         else
                         {
@@ -220,7 +233,7 @@ namespace Game.Enemy
             if (towerDistance <= stopDistance)
             {
                 //攻撃
-                Attack();
+                ArrowAttack();
             }
             else
             {
@@ -238,7 +251,7 @@ namespace Game.Enemy
             if (npcDistance <= stopDistance)
             {
                 //攻撃
-                Attack();
+                ArrowAttack();
             }
             else
             {
@@ -250,7 +263,7 @@ namespace Game.Enemy
         /// <summary>
         /// 攻撃関数
         /// </summary>
-        void Attack()
+        void ArrowAttack()
         {
             // 走るアニメーションの停止
             e_Animator.SetBool("IsRun", false);
