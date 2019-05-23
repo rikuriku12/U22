@@ -779,7 +779,7 @@ GameObject:
   - component: {fileID: 667982548}
   m_Layer: 0
   m_Name: TL
-  m_TagString: AllyCore_C
+  m_TagString: Tower_left
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
