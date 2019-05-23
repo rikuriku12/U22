@@ -96,12 +96,9 @@ namespace Game.Enemy
                         // 停止距離になったら
                         if (agentDistance <= stopDistance)
                         {
-                            //攻撃
-<<<<<<< HEAD
+                            
                             Attack();
-=======
-                            ArrowAttack();
->>>>>>> e700522f0412e0e390979fe8b272d2ba456cd497
+
                         }
                         else
                         {
@@ -136,11 +133,9 @@ namespace Game.Enemy
                         if (agentDistance <= stopDistance)
                         {
                             //攻撃
-<<<<<<< HEAD
+
                             Attack();
-=======
-                            ArrowAttack();
->>>>>>> e700522f0412e0e390979fe8b272d2ba456cd497
+    
                         }
                         else
                         {
@@ -233,7 +228,7 @@ namespace Game.Enemy
             if (towerDistance <= stopDistance)
             {
                 //攻撃
-                ArrowAttack();
+                Attack();
             }
             else
             {
@@ -251,7 +246,7 @@ namespace Game.Enemy
             if (npcDistance <= stopDistance)
             {
                 //攻撃
-                ArrowAttack();
+                Attack();
             }
             else
             {
@@ -263,7 +258,7 @@ namespace Game.Enemy
         /// <summary>
         /// 攻撃関数
         /// </summary>
-        void ArrowAttack()
+        void Attack()
         {
             // 走るアニメーションの停止
             e_Animator.SetBool("IsRun", false);
