@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerStatus : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int PHp;
+    public float PHp;
     // Start is called before the first frame update
     void Start()
     {
