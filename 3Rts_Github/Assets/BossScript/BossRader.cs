@@ -4,14 +4,28 @@ using UnityEngine;
 
 public class BossRader : MonoBehaviour
 {
-    public Transform target;
+    private GameObject Player;
 
-    void OnTriggerStay(Collider other)
+    //void OnTriggerStay(Collider other)
+    //{
+
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        transform.root.LookAt(target);
+    //    }
+    //}
+
+    private void Start()
     {
-
-        if (other.CompareTag("Player"))
+        Player = GameObject.FindWithTag("Player");
+    }
+    private void Update()
+    {
+        if (Player)
         {
-            transform.root.LookAt(target);
+            var aim = this.Player.transform.position - this.transform.position;
+            var look = Quaternion.LookRotation(aim);
+            this.transform.localRotation = look;
         }
     }
 }

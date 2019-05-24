@@ -4,18 +4,26 @@ using UnityEngine;
 using UnityEngine.AI;
 public class BossManager : MonoBehaviour
 {
-    public GameObject target;
+   // public GameObject target;
     private NavMeshAgent agent;
+    private GameObject Player;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+        Player = GameObject.FindWithTag("Player");
+
     }
 
     void Update()
     {
 
         // ターゲットの位置を目的地に設定する。
-        agent.destination = target.transform.position;
+
+        if (Player)
+        {
+            agent.SetDestination(Player.transform.position);
+        }
     }
 }
