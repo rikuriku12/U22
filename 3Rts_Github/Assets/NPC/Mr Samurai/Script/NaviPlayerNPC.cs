@@ -7,120 +7,90 @@ public class NaviPlayerNPC : MonoBehaviour
 {
     NavMeshAgent agent;
 
-    [SerializeField] Animator p_Animator;
-
-    Vector3 position;
+    Animator p_Animator;    
 
     private GameObject tower;// 敵タワー
-    private GameObject enemy;// エネミー
-    [SerializeField] private Transform targget;// 目的地
-    private GameObject nearObj;// 近くの特定のタグ付きオブジェクト
+    private GameObject nearEnemy;// 近くのEnemy
+    [SerializeField] private Transform targget;// 目的地    
 
-    //private bool npc_Flag;// エネミーをターゲットにするフラグ
-
-    float agentDistance;// プレイヤー、敵間の距離
-    [SerializeField] float plyerDistance = 10f;// エネミーを検知する距離
+    float agentDistance;// プレイヤーのNPC、敵間の距離
+    float towerDistance;// tower、PlayerNPC間の距離
+    [SerializeField] float enemyDistance = 10f;// エネミーを検知する距離
     [SerializeField] float stopDistance = 5f;// 停止距離
 
     private float searchTime = 0;//serchTagの探す時間
 
     void Start()
     {
-        //npc_Flag = false;
-
+        p_Animator = gameObject.GetComponent<Animator>(); //animatorコンポーネントを取得
         agent = gameObject.GetComponent<NavMeshAgent>();//NaviMeshAgentのコンポーネントを取得
         tower = GameObject.FindWithTag("EnemyCore");// 敵タワーを取得
-        enemy = GameObject.FindWithTag("Enemy");// エネミーを取得
+       
         //タワーがあれば
         if (tower)
         {
             //目的地をタワーに
             targget = tower.transform;
             p_Animator.SetBool("IsRun", true);
-
-        }
-        if (targget)
-        {
-            // エージェント
-            agent.SetDestination(targget.position);
-
         }
     }
 
     void Update()
     {
-        //Debug.Log(enemy);
+        towerDistance = Vector3.Distance(this.agent.transform.position, tower.transform.position);
         //停止距離より離れていたら
-        if (!(agentDistance <= stopDistance))
+        if (!(agentDistance <= stopDistance
+              && towerDistance <= stopDistance))
         {
             // 走るアニメーションの再生
             p_Animator.SetBool("IsRun", true);
         }
-        if (enemy)// Enemyの中にオブジェクトが入っていたら
+
+        // nearEnemyの中にオブジェクトが入っていたら
+        if (nearEnemy)
         {
             // EnemyとNPCの距離
             agentDistance = Vector3.Distance(this.agent.transform.position,
-                                                enemy.transform.position);
-            // Enemyとの距離が近くなり、npcフラグオフのとき
-            if (agentDistance <= plyerDistance /*&& npc_Flag == false*/)
+                                                nearEnemy.transform.position);
+            // Enemyとの距離が近くのとき
+            if (agentDistance <= enemyDistance)
             {
                 // 目的地をEnemyに設定
-                targget = enemy.transform;
-
-                // 停止距離になったら
-                if (agentDistance <= stopDistance)
-                {
-                    //攻撃関数
-                    ArrowAttack();
-                }
-                else
-                {
-                    // Naviを入れる
-                    agent.GetComponent<NavMeshAgent>().isStopped = false;
-                }
+                targget = nearEnemy.transform;
+                AttackEnemy();
             }
             else
             {
                 //目的地をタワーに設定
                 targget = tower.transform;
             }
-
-            //searchTime += Time.deltaTime;
-
-            //if (searchTime >= 1.0f)
-            //{
-            //    //最も近かった、"Enemy"タグのオブジェクトを取得
-            //    nearObj = serchTag(gameObject, "Enemy");
-            //    //経過時間を初期化
-            //    searchTime = 0;
-            //}
         }
         else
         {
-            searchTime += Time.deltaTime;
-
-            if (searchTime >= 1.0f)
-            {
-                //最も近かった、"Enemy"タグのオブジェクトを取得
-                nearObj = serchTag(gameObject, "Enemy");
-                //経過時間を初期化
-                searchTime = 0;
-            }
+            targget = tower.transform;
 
             if (agent.GetComponent<NavMeshAgent>().isStopped == true)
             {
                 // Naviを入れる
                 agent.GetComponent<NavMeshAgent>().isStopped = false;
             }
-            //目的地をタワーに設定
-            targget = tower.transform;
-            p_Animator.SetBool("IsRun", true);
+
+            // サーチ時間カウント
+            searchTime += Time.deltaTime;
+            //サーチ時間
+            float limitTime = 1.0f;
+            if (searchTime >= limitTime)
+            {
+                //最も近かった、"Enemy"タグのオブジェクトを取得
+                nearEnemy = serchTag(gameObject, "Enemy");
+                //経過時間を初期化
+                searchTime = 0;
+            }
         }
 
-        // nearObjがあれば
-        if (nearObj)
+        if (targget == tower.transform)
         {
-            enemy = nearObj;
+            AttackTower();
         }
 
         //ターゲットが入っていたら
@@ -160,18 +130,49 @@ public class NaviPlayerNPC : MonoBehaviour
         return targetObj;
     }
 
-    void ArrowAttack()
+    void Attack()
     {
         // 走るアニメーションの停止
         p_Animator.SetBool("IsRun", false);
         // Naviを切る
         agent.GetComponent<NavMeshAgent>().isStopped = true;
         //Enemyの方向を向く
-        var aim = this.enemy.transform.position - this.transform.position;
+        var aim = this.targget.transform.position - this.transform.position;
         var look = Quaternion.LookRotation(aim);
         this.transform.localRotation = look;
         //攻撃アニメーションの再生
         p_Animator.SetTrigger("IsAttack");
+    }
+
+    /// <summary>
+    /// Enemyの検知、攻撃の関数
+    /// </summary>
+    void AttackEnemy()
+    {       
+        if (agentDistance <= stopDistance)
+        {
+            //攻撃
+            Attack();
+        }
+        else
+        {
+            // Naviを動かす
+            agent.GetComponent<NavMeshAgent>().isStopped = false;
+            p_Animator.SetBool("IsRun", true);
+        }
+    }
+
+    void AttackTower()
+    {        
+        if (towerDistance <= stopDistance)
+        {
+            Attack();
+        }
+        else
+        {
+            // Naviを動かす
+            agent.GetComponent<NavMeshAgent>().isStopped = false;
+        }
     }
 }
 
