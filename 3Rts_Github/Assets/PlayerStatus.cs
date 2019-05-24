@@ -41,5 +41,10 @@ public class PlayerStatus : MonoBehaviour
         {
             PHp -= 50;
         }
+
+        if (other.gameObject.tag == "Boss_Sword")
+        {
+            PHp -= 20;
+        }
     }
 }
