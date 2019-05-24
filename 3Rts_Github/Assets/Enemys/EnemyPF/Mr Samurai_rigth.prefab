@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 869035724037731857}
   m_Layer: 0
   m_Name: collider
-  m_TagString: Untagged
+  m_TagString: Enemy_Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5397196867995296163
 Transform:
   m_ObjectHideFlags: 0
@@ -1383,6 +1383,7 @@ GameObject:
   - component: {fileID: 3840315746363653273}
   - component: {fileID: 1617316845372056815}
   - component: {fileID: 3696765418077352901}
+  - component: {fileID: 4475662614800181014}
   - component: {fileID: 1537473267196688918}
   m_Layer: 0
   m_Name: Mr Samurai_rigth
@@ -1462,6 +1463,19 @@ CapsuleCollider:
   m_Height: 1.03
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &4475662614800181014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3755983017359040241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e43feb0870c0942a46f453136cc4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 100
 --- !u!114 &1537473267196688918
 MonoBehaviour:
   m_ObjectHideFlags: 0

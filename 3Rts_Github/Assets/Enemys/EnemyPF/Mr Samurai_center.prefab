@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5231831795275199530
 Transform:
   m_ObjectHideFlags: 0
@@ -976,6 +976,7 @@ GameObject:
   - component: {fileID: 3978376580192086288}
   - component: {fileID: 1444634733289222502}
   - component: {fileID: 3876249203935631331}
+  - component: {fileID: 2403290599123355196}
   - component: {fileID: 2556280740023622061}
   m_Layer: 0
   m_Name: Mr Samurai_center
@@ -1055,6 +1056,19 @@ CapsuleCollider:
   m_Height: 1.03
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &2403290599123355196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3918813509090593656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e43feb0870c0942a46f453136cc4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 100
 --- !u!114 &2556280740023622061
 MonoBehaviour:
   m_ObjectHideFlags: 0

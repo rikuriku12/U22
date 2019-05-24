@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4592821423738971320}
   - component: {fileID: 1417238654498346700}
   - component: {fileID: 3672340742174999542}
-  - component: {fileID: 4009322265287650565}
   m_Layer: 0
   m_Name: Cube 1
   m_TagString: TowerBurret
@@ -108,18 +107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
 --- !u!114 &3672340742174999542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3918158821577472556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71016341232c7c94ea62d62884bc676e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4009322265287650565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
