@@ -651,10 +651,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ca2cebc99502d4ba9f08003e4c1ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p_Animator: {fileID: 95685920248245596}
   targget: {fileID: 0}
-  plyerDistance: 10
-  stopDistance: 5
+  enemyDistance: 10
+  stopDistance: 2
 --- !u!64 &64438185765033808
 MeshCollider:
   m_ObjectHideFlags: 0
