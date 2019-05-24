@@ -34,11 +34,16 @@ namespace Game.Enemy
             player = GameObject.FindWithTag("Player");// プレイヤーを取得
 
             //タワーがあれば
-            if (msterTower)
+            if (middleTower)
+            {
+                //目的地をタワーに
+                targget = middleTower.transform;
+            }
+            /*if (msterTower)
             {
                 //目的地をタワーに
                 targget = msterTower.transform;
-            }
+            }*/
         }
 
         void Update()
@@ -91,8 +96,9 @@ namespace Game.Enemy
                         // 停止距離になったら
                         if (agentDistance <= stopDistance)
                         {
-                            //攻撃
+                            
                             Attack();
+
                         }
                         else
                         {
@@ -127,7 +133,9 @@ namespace Game.Enemy
                         if (agentDistance <= stopDistance)
                         {
                             //攻撃
+
                             Attack();
+    
                         }
                         else
                         {

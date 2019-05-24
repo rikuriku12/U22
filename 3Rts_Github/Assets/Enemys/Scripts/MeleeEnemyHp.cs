@@ -20,21 +20,16 @@ public class MeleeEnemyHp : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)//矢が刺さるように
-    {
-        if (collision.gameObject.tag == "P_Sword")
-        {
-            Hp -= 50;
-        }
-
-
-    }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "NPC_Sword")
         {
             Hp -= 20;
+        }
+        if (other.gameObject.tag == "P_Sword")
+        {
+            Hp -= 50;
         }
     }
 }

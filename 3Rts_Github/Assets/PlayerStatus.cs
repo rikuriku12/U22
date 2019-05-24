@@ -39,7 +39,12 @@ public class PlayerStatus : MonoBehaviour
 
         if (other.gameObject.tag == "TowerBurret")
         {
-            PHp -= 100;
+            PHp -= 50;
+        }
+
+        if (other.gameObject.tag == "Boss_Sword")
+        {
+            PHp -= 20;
         }
     }
 }

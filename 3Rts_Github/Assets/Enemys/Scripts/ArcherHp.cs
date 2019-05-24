@@ -22,10 +22,7 @@ public class ArcherHp : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)//矢が刺さるように
     {
-        if (collision.gameObject.tag == "P_Sword")
-        {
-            Hp -= 50;
-        }
+        
 
 
     }
@@ -36,5 +33,10 @@ public class ArcherHp : MonoBehaviour
         {
             Hp -= 20;
         }
+        if (other.gameObject.tag == "P_Sword")
+        {
+            Hp -= 50;
+        }
     }
+
 }
