@@ -15,6 +15,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     //　ジャンプ力
     [SerializeField]
+    private float jumpForc;
+    //ジャンプの回数
+    [SerializeField]
+    private int jumpMax = 2;
+    //ジャンプ回数
+    private int jumpCount;
+    // 移動スピード
+    [SerializeField]
     private float moveSpeed;
     [SerializeField]
     private float boost;
@@ -96,9 +104,12 @@ public class PlayerController : MonoBehaviour
         // ▼▼▼ジャンプ処理▼▼▼
         //　ジャンプキー（デフォルトではSpace）を押したらY軸方向の速度にジャンプ力を足す
         if ((Input.GetButtonDown("Jump")||Input.GetButtonDown("joystick A"))
-            && !animCon.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+            && !animCon.GetCurrentAnimatorStateInfo(0).IsName("Jump")
+            && jumpCount<=jumpMax)
         {
+            rb.AddForce(Vector3.up * jumpForc,ForceMode.Impulse);
             animCon.SetBool("Jump", true);
+            jumpCount++;
         }
     }
 
