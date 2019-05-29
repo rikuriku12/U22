@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace SimpleHealthBar_SpaceshipExample
 {
-	public class PlayerController : MonoBehaviour
+	public class PlayerControll1er : MonoBehaviour
 	{
 		static PlayerController instance;
 		public static PlayerController Instance { get { return instance; } }
