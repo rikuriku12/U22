@@ -15,9 +15,11 @@ public class TurretSet : MonoBehaviour
     public float cost;
     //public int Setcount;
 
+    public ParticleSystem TurretParticle;
+
     public void Start()//ゲーム開始時に一度だけ実行する内容
     {
-
+        TurretParticle.Stop();
     }
 
     void Update()
@@ -36,15 +38,17 @@ public class TurretSet : MonoBehaviour
         cooltime++;
         if (cooltime >= 30)
         {
-            //if (Input.GetButton("L1") || Input.GetKey("z"))
-            //{
-                if ((Input.GetKeyDown("x") || Input.GetButtonDown("joystick button 9")) && militaryforce > cost)//※3
+            if (Input.GetButton("L1") || Input.GetKey("z"))
+            {
+                if ((Input.GetKeyDown("x") || Input.GetButtonDown("joystick X")) && militaryforce > cost)//※3
                 {
                     StartCoroutine("Turret");//※3
                     militaryforce -= cost;
                     cooltime = 0;
+
+                    TurretParticle.Play();
                 }
-            //}
+            }
 
         }
     }
