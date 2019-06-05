@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     // キャラクターコントローラ（カプセルコライダ）の参照
     private CapsuleCollider col;
     private Rigidbody rb;
-
     // キャラクターコントローラ（カプセルコライダ）の移動量
     private Vector3 velocity;
     //　ジャンプ力
@@ -130,6 +129,14 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed -= boost;
         }
+    }
+    void JumpStart()
+    {
+        rb.useGravity = false;
+    }
+    void JumpEnd()
+    {
+        rb.useGravity = true;
     }
 }
 
