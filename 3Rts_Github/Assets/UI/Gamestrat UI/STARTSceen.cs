@@ -11,12 +11,13 @@ public class STARTSceen : MonoBehaviour
     {
         if (Input.GetButtonDown("Start"))
         {
-            Invoke("FadeScene", 0f);
+            //Invoke("FadeScene", 0f);
+            SceneManager.LoadScene("Startmeny");
+
         }
     }
 
-    public void FadeScene()
-    {
-        FadeManager.Instance.LoadScene("SampleScene", 3f);
-    }
+    //public void FadeScene()
+    //{
+    //}
 }
