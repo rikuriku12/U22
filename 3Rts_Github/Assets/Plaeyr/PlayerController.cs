@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private float boost;
     public Animator animCon;  //  アニメーションするための変数
     public AnimatorStateInfo stateInfo;
+    public bool HPvar { get; set; }
 
     //コントローラーのための配列
     string[] ConNum;
@@ -103,6 +104,15 @@ public class PlayerController : MonoBehaviour
             && !stateInfo.IsName("Jump"))
         {
             animCon.SetBool("Jump", true);
+        }
+
+        if(Input.GetAxisRaw("L R Trigger") < 0)
+        {
+            HPvar = true;
+        }
+        else
+        {
+            HPvar = false;
         }
     }
 
