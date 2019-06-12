@@ -23,7 +23,7 @@ public class ChangeEquip : MonoBehaviour
 
         //　初期装備設定
         equipment = 0;
-        weapons[equipment].SetActive(true);
+        //weapons[equipment].SetActive(true);                       //保留
         Player = GameObject.FindWithTag("Player");
         playercontroller = Player.GetComponent<PlayerController>();
     }
@@ -44,7 +44,7 @@ public class ChangeEquip : MonoBehaviour
         equipment++;
         if (equipment >= weapons.Length)
         {
-            equipment = 0;
+            equipment = 0;                 
         }
         //　武器を切り替え
         for (var i = 0; i < weapons.Length; i++)

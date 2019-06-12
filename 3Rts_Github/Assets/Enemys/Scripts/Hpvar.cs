@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hpvar : MonoBehaviour
 {
     GameObject player;
-    [SerializeField]bool pcr;
+    [SerializeField]bool pcr;                       //HPバーの可視化
     // Start is called before the first frame update
     void Start()
     {
