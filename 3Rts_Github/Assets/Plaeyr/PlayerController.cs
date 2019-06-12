@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     string[] ConNum;
 
     private float MoveSpeedSave;
+
+    ChangeEquip equip;
+
     private void Start()
     {
         animCon = GetComponent<Animator>(); // アニメーターのコンポーネントを参照する
@@ -37,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
         //コントローラーが何台接続されているか
         ConNum = Input.GetJoystickNames();
+        equip = GetComponent<ChangeEquip>();
     }
 
     private void Update()
@@ -106,7 +110,7 @@ public class PlayerController : MonoBehaviour
             animCon.SetBool("Jump", true);
         }
 
-        if(Input.GetAxisRaw("L R Trigger") < 0)
+        if (Input.GetAxisRaw("L R Trigger") < 0)
         {
             HPvar = true;
         }
@@ -118,11 +122,29 @@ public class PlayerController : MonoBehaviour
 
     private void Weapon()
     {
-        if ((Input.GetMouseButtonDown(0) && !Input.GetKeyDown("z")) || ((Input.GetButtonDown("joystick X")) && !Input.GetButton("L1"))
-        && !stateInfo.IsName("Attack"))
+        if (equip.weapons[equip.equipment].name == "Hoshi_katana")
         {
-            animCon.SetBool("Attack", true);
+            if ((Input.GetMouseButtonDown(0) && !Input.GetKeyDown("z")) || ((Input.GetButtonDown("joystick X"))
+                && !Input.GetButton("L1")) &&
+                !stateInfo.IsName("Attack"))
+            {
+                animCon.SetBool("Attack", true);
+            }
         }
+        if (equip.weapons[equip.equipment].name == "Elven Long Bow")
+        {
+            if ((Input.GetMouseButton(0) && !Input.GetKeyDown("z")) || ((Input.GetButton("joystick X"))
+                && !Input.GetButton("L1"))
+                && !stateInfo.IsName("Attack"))
+            {
+                animCon.SetBool("check", true);
+            }
+            else
+            {
+                animCon.SetBool("check", false);
+            }
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)

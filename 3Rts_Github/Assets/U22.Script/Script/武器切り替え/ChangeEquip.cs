@@ -5,13 +5,13 @@ using UnityEngine;
 public class ChangeEquip : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] weapons;
-    private int equipment;
+    public GameObject[] weapons;
+    public int equipment;
 
     PlayerController playercontroller;
     GameObject Player;
 
-    GameObject Sword, Gun;
+    GameObject Sword, Bow;
     //private ProcessMyAttack processMyAttack;
     //private Move move;
 
@@ -24,29 +24,18 @@ public class ChangeEquip : MonoBehaviour
         //　初期装備設定
         equipment = 0;
         weapons[equipment].SetActive(true);
-        Player = GameObject.Find("Player");
+        Player = GameObject.FindWithTag("Player");
         playercontroller = Player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetButtonDown("joystick Y") /*&& move.GetState() == Move.MyState.Normal*/)&& 
-            (!playercontroller.stateInfo.IsName("New State 1"))&&
-            (!playercontroller.stateInfo.IsName("New State 4")))
+        if ((Input.GetButtonDown("joystick Y")||Input.GetKeyDown(KeyCode.C))  && 
+            (!playercontroller.stateInfo.IsTag("Attack"))&&
+            (!playercontroller.stateInfo.IsTag("Jump")))
         {
             Change();
-
-            Sword = GameObject.FindWithTag("sword");
-            //Gun = GameObject.FindWithTag("gun");
-            if (Sword)
-            {
-                //playercontroller.weapon = 2;
-            }
-            else
-            {
-                //playercontroller.weapon = 1;
-            }
         }
     }
 
@@ -63,7 +52,6 @@ public class ChangeEquip : MonoBehaviour
             if (i == equipment)
             {
                 weapons[i].SetActive(true);
-                /*processMyAttack.SetCollider(weapons[i].GetComponent<Collider>());*/
             }
             else
             {
