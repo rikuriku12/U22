@@ -39,7 +39,12 @@ public class PlayerStatus : MonoBehaviour
             DamegeArrow.Play();
         }
 
-        if (collision.gameObject.tag == "Enemy_Sword")
+        
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy_Sword")
         {
             PHp -= 20;
 
@@ -48,7 +53,7 @@ public class PlayerStatus : MonoBehaviour
             DamegeSword.Play();
         }
 
-        if (collision.gameObject.tag == "TowerBurret")
+        if (other.gameObject.tag == "TowerBurret")
         {
             PHp -= 100;
 
