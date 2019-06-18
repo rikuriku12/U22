@@ -1,30 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &8200068154423315255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8353985737948681347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd91e495259b134d898da75b96a90f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pcr: 0
---- !u!114 &7739007899936038979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5016971888822158923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01505874cbc357a468f1ddad0f237efb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3098779585753343733
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e43feb0870c0942a46f453136cc4cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 100
+  Hp: 150
 --- !u!114 &2366572667921766921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1550,6 +1525,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.50626814, y: 0.009573042, z: 0.38843536}
   m_Center: {x: -0.024789631, y: -0.04286632, z: -0.12321997}
+--- !u!114 &7739007899936038979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016971888822158923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01505874cbc357a468f1ddad0f237efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8200068154423315255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8353985737948681347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdd91e495259b134d898da75b96a90f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pcr: 0
 --- !u!1001 &2732699184767201017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1666,6 +1666,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741699407070429491, guid: dcb23fde8cf4e7248acbaf7e103888d7,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741699407070429491, guid: dcb23fde8cf4e7248acbaf7e103888d7,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.20496619
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741699407070429491, guid: dcb23fde8cf4e7248acbaf7e103888d7,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.20496619
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 520259268415273843, guid: dcb23fde8cf4e7248acbaf7e103888d7, type: 3}
