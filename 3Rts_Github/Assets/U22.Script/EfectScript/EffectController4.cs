@@ -14,10 +14,16 @@ public class EffectController4 : MonoBehaviour
         effectArrow1.Stop();
         effectArrow2.Stop();
         effectArrow3.Stop();
-            }
+     }
 
-    //private void Update()
-    //{
+    private void Update()
+    {
+        if(!(Input.GetButton("joystick Y")))
+        {
+            effectArrow1.Stop();
+            effectArrow2.Stop();
+            effectArrow3.Stop();
+        }
     //    if (animator.GetBool("check"))
     //    {
     //        o = true;
@@ -27,7 +33,7 @@ public class EffectController4 : MonoBehaviour
     //        o = false;
     //    }
     //    Effect4();
-    //}
+    }
     void Effect4()
     {
         //if (o)

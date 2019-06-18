@@ -15,7 +15,7 @@ public class SwordCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("joystick X") && )
+        if(Input.GetButton("joystick X"))
         {
             GetComponent<BoxCollider>().enabled = true;
         }
