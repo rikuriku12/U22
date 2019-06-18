@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIctl : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class UIctl : MonoBehaviour
     [SerializeField] Sprite[] Item;
     [SerializeField] GameObject[] Item_UI;
     GameObject Back;
-
-
+    [SerializeField] GameObject Player;
+    [SerializeField]TextMeshProUGUI skillPointText;
+    public int skillPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +22,13 @@ public class UIctl : MonoBehaviour
         {
             Item_UI[i].GetComponent<Image>().sprite = Item[i];
         }
+        skillPoint = 0;
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("L1") || Input.GetKey("z"))
+        skillPointText.text = skillPoint.ToString();
+        if (Input.GetAxisRaw("L R Trigger") < 0 || Input.GetKey("z"))
         {
             Back.SetActive(true);
             if (Input.GetButtonDown("joystick Y"))
@@ -38,6 +42,25 @@ public class UIctl : MonoBehaviour
                 e++;
                 if (e >= Item.Length) e -= Item.Length;
                 imagechange();
+            }
+            if (skillPoint > 0)
+            {
+                if (Input.GetButtonDown("R1"))
+                {
+                    if (Item_UI[0].GetComponent<Image>().sprite.name == "0")
+                    {
+                        Player.GetComponent<PlayerStatus>().PHp += 500;
+                    }
+                    if (Item_UI[0].GetComponent<Image>().sprite.name == "1")
+                    {
+                        Player.GetComponent<TurretSet>().maxMilitary += 1;
+                    }
+                    if (Item_UI[0].GetComponent<Image>().sprite.name == "2")
+                    {
+                        Player.GetComponent<PlayerStatus>().AttackPower += 50;
+                    }
+                    skillPoint -= 1;
+                }
             }
         }
         else

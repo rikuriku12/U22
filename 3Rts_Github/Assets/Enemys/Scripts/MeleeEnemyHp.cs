@@ -29,7 +29,7 @@ public class MeleeEnemyHp : MonoBehaviour
         }
         if (other.gameObject.tag == "P_Sword")
         {
-            Hp -= 50;
+            Hp -= GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().AttackPower + 50;
         }
     }
 }

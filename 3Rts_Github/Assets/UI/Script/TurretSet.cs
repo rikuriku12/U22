@@ -13,6 +13,7 @@ public class TurretSet : MonoBehaviour
     int cooltime;
     public float militaryforce;
     public float cost;
+    public float maxMilitary;
     //public int Setcount;
 
     public ParticleSystem TurretParticle;
@@ -20,6 +21,7 @@ public class TurretSet : MonoBehaviour
     public void Start()//ゲーム開始時に一度だけ実行する内容
     {
         TurretParticle.Stop();
+        maxMilitary = 1;
     }
 
     void Update()
@@ -28,9 +30,9 @@ public class TurretSet : MonoBehaviour
         {
             militaryforce = 0;
         }
-        if (militaryforce > 1)
+        if (militaryforce > maxMilitary)
         {
-            militaryforce = 1;
+            militaryforce = maxMilitary;
         }
     }
     public void FixedUpdate()//ゲーム開始時に何度も実行する内容

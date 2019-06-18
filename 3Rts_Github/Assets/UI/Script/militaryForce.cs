@@ -24,7 +24,7 @@ public class militaryForce : MonoBehaviour
     void Update()
     {
         militaryForcePower = turretSet.Getmilitaryforce();
-        militaryforce.fillAmount = militaryForcePower;
+        militaryforce.fillAmount = militaryForcePower / turretSet.maxMilitary;
 
         //spaceを押したらHPが減る
         if (Input.GetKeyDown("space"))
@@ -32,9 +32,9 @@ public class militaryForce : MonoBehaviour
             turretSet.Setmilitaryforce(turretSet.Getmilitaryforce() - 0.01f) ;
         }
         //enterを押したらHPが減る
-        if (Input.GetKeyDown("tab"))
+        if (Input.GetKey("tab"))
         {
-            turretSet.Setmilitaryforce(turretSet.Getmilitaryforce() + 0.01f);
+            turretSet.Setmilitaryforce(turretSet.Getmilitaryforce() + turretSet.militaryforce);
         }
     }
 }

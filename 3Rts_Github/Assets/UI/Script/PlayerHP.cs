@@ -10,7 +10,7 @@ public class PlayerHP : MonoBehaviour
     [SerializeField] private Image Hp;
     [SerializeField] GameObject Player;
     PlayerStatus playerStatus;
-    float Maxhp;
+     float Maxhp;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,10 @@ public class PlayerHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerStatus.PHp > Maxhp)
+        {
+            Maxhp = playerStatus.PHp;
+        }
         Hp.fillAmount = playerStatus.PHp / Maxhp;
 
         //spaceを押したらHPが減る

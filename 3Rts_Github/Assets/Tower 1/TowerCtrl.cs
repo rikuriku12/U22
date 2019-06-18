@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TowerCtrl : MonoBehaviour
 {
+    [SerializeField] GameObject UI;
     public int Hp;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class TowerCtrl : MonoBehaviour
     {
         if(Hp <= 0)
         {
+            UI.GetComponent<UIctl>().skillPoint += 1;
             Destroy(this.gameObject);
         }
     }

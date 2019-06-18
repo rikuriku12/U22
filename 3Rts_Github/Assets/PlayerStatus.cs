@@ -6,6 +6,7 @@ public class PlayerStatus : MonoBehaviour
 {
     // Start is called before the first frame update
     public float PHp;
+    public int AttackPower;
     public ParticleSystem DamegeArrow;
     public ParticleSystem DamegeSword;
     public ParticleSystem DamegeTower;
