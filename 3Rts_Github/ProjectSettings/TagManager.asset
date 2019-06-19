@@ -21,6 +21,8 @@ TagManager:
   - NPC_Sword
   - Enemy_Sword
   - Boss_Sword
+  - TopLine
+  - BotLine
   layers:
   - Default
   - TransparentFX

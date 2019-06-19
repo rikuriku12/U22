@@ -75,32 +75,48 @@ public class PlayerController : MonoBehaviour
         {
             animCon.SetBool("Run", true);  //  Runモーションする
         }
-        if (animCon.GetBool("Run") == true)
+        //if (animCon.GetBool("Run") == true)
+        //{
+        if (!stateInfo.IsTag("Attack")&&!stateInfo.IsName("Take 001"))
         {
-            if (!stateInfo.IsTag("Attack"))
+            velocity.y += Physics.gravity.y * Time.deltaTime;
+            // カメラの方向から、X-Z平面の単位ベクトルを取得
+            Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+
+            // 方向キーの入力値とカメラの向きから、移動方向を決定
+            Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
+
+            // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
+            rb.velocity = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
+
+            // キャラクターの向きを進行方向に
+            if (moveForward != Vector3.zero)
             {
-                velocity.y += Physics.gravity.y * Time.deltaTime;
-                // カメラの方向から、X-Z平面の単位ベクトルを取得
-                Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-
-                // 方向キーの入力値とカメラの向きから、移動方向を決定
-                Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
-
-                // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
-                rb.velocity = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
-
-                // キャラクターの向きを進行方向に
-                if (moveForward != Vector3.zero)
-                {
-                    transform.rotation = Quaternion.LookRotation(moveForward);
-                }
-                if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("joystick B"))
-                && !stateInfo.IsTag("rolling"))
-                {
-                    animCon.SetTrigger("rolling");
-                }
+                transform.rotation = Quaternion.LookRotation(moveForward);
+            }
+            if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("joystick B"))
+            && !stateInfo.IsTag("rolling"))
+            {
+                animCon.SetTrigger("rolling");
             }
         }
+        else
+        {
+            velocity.y += Physics.gravity.y * Time.deltaTime;
+            // カメラの方向から、X-Z平面の単位ベクトルを取得
+            Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+
+            // 方向キーの入力値とカメラの向きから、移動方向を決定
+            Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
+
+           
+            // キャラクターの向きを進行方向に
+            if (moveForward != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(moveForward);
+            }
+        }
+        //}
 
         // ▼▼▼ジャンプ処理▼▼▼
         //　ジャンプキー（デフォルトではSpace）を押したらY軸方向の速度にジャンプ力を足す
@@ -126,7 +142,8 @@ public class PlayerController : MonoBehaviour
         {
             if ((Input.GetMouseButtonDown(0) && !Input.GetKeyDown("z")) || ((Input.GetButtonDown("joystick X"))
                 && !Input.GetButton("L1")) &&
-                !stateInfo.IsName("Attack"))
+                (!animCon.GetBool("check")) &&
+                (!animCon.IsInTransition(0)))
             {
                 animCon.SetBool("Attack", true);
             }
@@ -134,8 +151,10 @@ public class PlayerController : MonoBehaviour
         if (equip.weapons[equip.equipment].name == "Elven Long Bow")
         {
             if ((Input.GetMouseButton(0) && !Input.GetKeyDown("z")) || ((Input.GetButton("joystick X"))
-                && !Input.GetButton("L1"))
-                && !stateInfo.IsName("Attack"))
+                && !Input.GetButton("L1")) &&
+                (!stateInfo.IsTag("Attack")) &&
+                (!animCon.GetBool("Attack")) &&
+                (!animCon.IsInTransition(0)))
             {
                 animCon.SetBool("check", true);
             }
@@ -165,10 +184,12 @@ public class PlayerController : MonoBehaviour
     void JumpStart()
     {
         rb.useGravity = false;
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
     void JumpEnd()
     {
         rb.useGravity = true;
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 }
 

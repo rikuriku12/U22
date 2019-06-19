@@ -47,15 +47,15 @@ public class UIctl : MonoBehaviour
             {
                 if (Input.GetButtonDown("R1"))
                 {
-                    if (Item_UI[0].GetComponent<Image>().sprite.name == "0")
+                    if (Item_UI[0].GetComponent<Image>().sprite.name == "体")
                     {
                         Player.GetComponent<PlayerStatus>().PHp += 500;
                     }
-                    if (Item_UI[0].GetComponent<Image>().sprite.name == "1")
+                    if (Item_UI[0].GetComponent<Image>().sprite.name == "兵")
                     {
                         Player.GetComponent<TurretSet>().maxMilitary += 1;
                     }
-                    if (Item_UI[0].GetComponent<Image>().sprite.name == "2")
+                    if (Item_UI[0].GetComponent<Image>().sprite.name == "力")
                     {
                         Player.GetComponent<PlayerStatus>().AttackPower += 50;
                     }
