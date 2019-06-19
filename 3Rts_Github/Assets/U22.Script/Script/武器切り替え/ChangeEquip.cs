@@ -31,9 +31,10 @@ public class ChangeEquip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetButtonDown("joystick Y")||Input.GetKeyDown(KeyCode.C))  && 
-            (!playercontroller.stateInfo.IsTag("Attack"))&&
-            (!playercontroller.stateInfo.IsTag("Jump")))
+        if ((Input.GetButtonDown("joystick Y") || Input.GetKeyDown(KeyCode.C)) &&
+            (!playercontroller.stateInfo.IsTag("Attack")) &&
+            (!playercontroller.stateInfo.IsTag("Jump")) &&
+            (!playercontroller.animCon.IsInTransition(0)))
         {
             Change();
         }
@@ -44,7 +45,7 @@ public class ChangeEquip : MonoBehaviour
         equipment++;
         if (equipment >= weapons.Length)
         {
-            equipment = 0;                 
+            equipment = 0;
         }
         //　武器を切り替え
         for (var i = 0; i < weapons.Length; i++)
