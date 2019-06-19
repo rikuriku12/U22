@@ -10,6 +10,10 @@ public class NaviPlayerNPC : MonoBehaviour
     Animator p_Animator;    
 
     private GameObject tower;// 敵タワー
+    private GameObject botTower;// 敵タワー
+    private GameObject midTower;// 敵タワー
+    private GameObject topTower;// 敵タワー
+
     private GameObject nearEnemy;// 近くのEnemy
     [SerializeField] private Transform targget;// 目的地    
 
@@ -18,19 +22,45 @@ public class NaviPlayerNPC : MonoBehaviour
     [SerializeField] float enemyDistance = 10f;// エネミーを検知する距離
     [SerializeField] float stopDistance = 5f;// 停止距離
 
+    //出現時のラインの判定
+    bool isBotLine = false;
+    bool isTopLine = false;
+    //bool isMidLine = false;
+
     private float searchTime = 0;//serchTagの探す時間
 
     void Start()
     {
         p_Animator = gameObject.GetComponent<Animator>(); //animatorコンポーネントを取得
         agent = gameObject.GetComponent<NavMeshAgent>();//NaviMeshAgentのコンポーネントを取得
+        
         tower = GameObject.FindWithTag("EnemyCore");// 敵タワーを取得
-       
+        botTower = GameObject.FindWithTag("Tower_left");
+        //midTower = GameObject.FindWithTag("Tower_center");
+        topTower = GameObject.FindWithTag("Tower_rigth");
+     
         //タワーがあれば
         if (tower)
         {
             //目的地をタワーに
-            targget = tower.transform;
+            if (isBotLine)
+            {
+                targget = botTower.transform;
+            }
+            
+            else if (isTopLine)
+            {
+                targget = topTower.transform;
+            }
+
+            //else if (isMidLine)
+            //{
+            //    targget = midTower.transform;
+            //}
+            else
+            {
+                targget = tower.transform;
+            }
             p_Animator.SetBool("IsRun", true);
         }
     }
@@ -59,15 +89,46 @@ public class NaviPlayerNPC : MonoBehaviour
                 targget = nearEnemy.transform;
                 AttackEnemy();
             }
-            else
+            else 
             {
-                //目的地をタワーに設定
-                targget = tower.transform;
+                if (isBotLine)
+                {
+                    targget = botTower.transform;
+                }
+                else if (isTopLine)
+                {
+                    targget = topTower.transform;
+                }
+                //else if (isMidLine)
+                //{
+                //    targget = midTower.transform;
+                //}
+                else
+                {
+                    targget = tower.transform;
+                }
+
             }
         }
         else
         {
-            targget = tower.transform;
+            if (isBotLine)
+            {
+                targget = botTower.transform;
+            }
+            else if (isTopLine)
+            {
+                targget = topTower.transform;
+            }
+            //else if (isMidLine)
+            //{
+            //    targget = midTower.transform;
+            //}
+            else
+            {
+                targget = tower.transform;
+            }
+
 
             if (agent.GetComponent<NavMeshAgent>().isStopped == true)
             {
@@ -98,7 +159,7 @@ public class NaviPlayerNPC : MonoBehaviour
         {
             // エージェント
             agent.SetDestination(targget.position);
-
+            
         }
     }
 
@@ -107,7 +168,6 @@ public class NaviPlayerNPC : MonoBehaviour
     {
         float tmpDis = 0;           //距離用一時変数
         float nearDis = 0;          //最も近いオブジェクトの距離
-        //string nearObjName = "";    //オブジェクト名称
         GameObject targetObj = null; //オブジェクト
 
         //タグ指定されたオブジェクトを配列で取得する
@@ -126,7 +186,6 @@ public class NaviPlayerNPC : MonoBehaviour
             }
         }
         //最も近かったオブジェクトを返す
-        //return GameObject.Find(nearObjName);
         return targetObj;
     }
 
@@ -169,10 +228,36 @@ public class NaviPlayerNPC : MonoBehaviour
             Attack();
         }
         else
-        {
+        { 
             // Naviを動かす
             agent.GetComponent<NavMeshAgent>().isStopped = false;
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
+        //Debug.Log("Trigger:" + other.gameObject.tag);
+        if (other.gameObject.tag == "TopLine")
+        {
+            isTopLine = true;
+            //Debug.Log("Top");
+        }
+        else 
+        {
+            isTopLine = false;
+        }
+        if (other.gameObject.tag == "BotLine")
+        {
+            //ボットレーンにいる
+            isBotLine = true;
+            //Debug.Log("bot");
+        }
+        else
+        {
+            //ボットレーンいない
+            isBotLine = false;
+        }
+    }  
 }
 
