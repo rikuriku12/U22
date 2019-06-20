@@ -35,7 +35,7 @@ public class PlayerStatus : MonoBehaviour
         {
             PHp -= 50;
 
-            Debug.Log("5");
+            
             //ダメージ後にパーティクル発生
             DamegeArrow.Play();
         }
@@ -56,9 +56,9 @@ public class PlayerStatus : MonoBehaviour
 
         if (other.gameObject.tag == "TowerBurret")
         {
-            PHp -= 100;
+            PHp -= 200;
 
-            Debug.Log("5");
+            
             //ダメージ後にパーティクル発生
             DamegeTower.Play();
         }

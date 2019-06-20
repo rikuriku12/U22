@@ -27,7 +27,7 @@ public class AllyCoreCtrl : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            AllyCoreHP -= 20;
+            AllyCoreHP -= 10;
         }
     }
 }
