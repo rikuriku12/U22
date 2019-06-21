@@ -12,9 +12,15 @@ public class STARTSceen : MonoBehaviour
         if (Input.GetButtonDown("Start"))
         {
             //Invoke("FadeScene", 0f);
-            SceneManager.LoadScene("Startmeny");
+            SceneManager.LoadScene("Game");
 
         }
+        if (Input.GetButtonDown("Back"))
+        {
+            Application.Quit();
+            Debug.Log("終了");
+        }
+
     }
 
     //public void FadeScene()
