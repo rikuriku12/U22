@@ -15,7 +15,7 @@ public class EnemyCoreCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(EnemyCoreHp == 0)
+        if(EnemyCoreHp <= 0)
         {
             SceneManager.LoadScene("Clear");
         }
@@ -27,5 +27,11 @@ public class EnemyCoreCtrl : MonoBehaviour
         {
             EnemyCoreHp -= 50;
         }
+
+        if (other.gameObject.tag == "NPC_Sword")
+        {
+            EnemyCoreHp -= 20;
+        }
     }
+
 }
