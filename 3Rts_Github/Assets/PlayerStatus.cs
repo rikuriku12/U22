@@ -21,12 +21,10 @@ public class PlayerStatus : MonoBehaviour
 
     private void Update()
     {
-
         if (PHp <= 0)
         {
             SceneManager.LoadScene("Over");
         }
-
     }
     // Update is called once per frame
     public void OnCollisionEnter(Collision collision)
@@ -34,8 +32,7 @@ public class PlayerStatus : MonoBehaviour
         if (collision.gameObject.tag == "EnemyArrow")
         {
             PHp -= 50;
-
-            
+            Debug.Log("5");
             //ダメージ後にパーティクル発生
             DamegeArrow.Play();
         }
@@ -48,7 +45,6 @@ public class PlayerStatus : MonoBehaviour
         if (other.gameObject.tag == "Enemy_Sword")
         {
             PHp -= 20;
-
             Debug.Log("5");
             //ダメージ後にパーティクル発生
             DamegeSword.Play();
@@ -56,9 +52,8 @@ public class PlayerStatus : MonoBehaviour
 
         if (other.gameObject.tag == "TowerBurret")
         {
-            PHp -= 200;
-
-            
+            PHp -= 100;
+            Debug.Log("5");
             //ダメージ後にパーティクル発生
             DamegeTower.Play();
         }

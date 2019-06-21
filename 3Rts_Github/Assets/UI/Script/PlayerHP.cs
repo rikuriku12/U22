@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHP : MonoBehaviour
 {
     public int PHP;
-    [SerializeField] float nowHp;
+    [SerializeField] float nowHp,time;
     [SerializeField] private Image Hp;
     [SerializeField] GameObject Player;
     PlayerStatus playerStatus;
@@ -26,13 +26,18 @@ public class PlayerHP : MonoBehaviour
         {
             Maxhp = playerStatus.PHp;
         }
-        Hp.fillAmount = playerStatus.PHp / Maxhp;
-
-        //spaceを押したらHPが減る
-        if (Input.GetKeyDown("space"))
+        if(Maxhp > playerStatus.PHp + (Maxhp  / 500 ))
         {
-            Hp.fillAmount -= 0.01f;
+            time += Time.deltaTime;
+            if (time > 1 )
+            {
+                playerStatus.PHp += Maxhp / 500;
+                time = 0;
+            }
+               
         }
+        Hp.fillAmount = playerStatus.PHp / Maxhp;
+        
     }
     /// <summary>
     /// 切り取り用

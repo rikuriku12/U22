@@ -38,6 +38,7 @@ public class TurretSet : MonoBehaviour
     public void FixedUpdate()//ゲーム開始時に何度も実行する内容
     {
         cooltime++;
+        if(!(gameObject.GetComponent<PlayerController>().jungle))
         if (cooltime >= 30)
         {
             if (Input.GetButton("L1") || Input.GetKey("z"))

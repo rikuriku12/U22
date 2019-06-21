@@ -5,10 +5,12 @@ using UnityEngine;
 public class MeleeEnemyHp : MonoBehaviour
 {
     public int Hp;
+    public float up = 0.1f;
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -16,6 +18,8 @@ public class MeleeEnemyHp : MonoBehaviour
     {
         if (Hp <= 0)
         {
+            if(player.GetComponent<TurretSet>().maxMilitary > player.GetComponent<TurretSet>().militaryforce + up)
+            player.GetComponent<TurretSet>().militaryforce += up;
             Destroy(this.gameObject);
         }
     }
@@ -29,7 +33,7 @@ public class MeleeEnemyHp : MonoBehaviour
         }
         if (other.gameObject.tag == "P_Sword")
         {
-            Hp -= GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().AttackPower + 50;
+            Hp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
         }
     }
 }

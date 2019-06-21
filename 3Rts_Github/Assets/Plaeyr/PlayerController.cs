@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public Animator animCon;  //  アニメーションするための変数
     public AnimatorStateInfo stateInfo;
     public bool HPvar { get; set; }
+    public bool jungle { get; set; }
 
     //コントローラーのための配列
     string[] ConNum;
@@ -170,7 +171,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "DashCollider")
         {
-            moveSpeed += boost;
+            jungle = true;
+            moveSpeed = boost*2;
         }
     }
 
@@ -178,7 +180,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "DashCollider")
         {
-            moveSpeed -= boost;
+            jungle = false;
+            moveSpeed = boost;
         }
     }
     void JumpStart()
