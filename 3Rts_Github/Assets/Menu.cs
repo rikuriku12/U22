@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
-public class menu : MonoBehaviour
+public class Menu : MonoBehaviour
 {
-    [SerializeField]GameObject[] gameplay;
+    [SerializeField] GameObject[] gameplay;
     int i;
-    [SerializeField]Animator ani;
+    [SerializeField] Animator ani;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +26,7 @@ public class menu : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            if (i == gameplay.Length-1)
+            if (i == gameplay.Length - 1)
             {
                 for (int k = 0; gameplay.Length > k; k++)
                 {
@@ -51,7 +49,7 @@ public class menu : MonoBehaviour
                 i++;
             }
 
-           
+
         }
         if (Input.GetKeyDown("x"))
         {
@@ -61,6 +59,6 @@ public class menu : MonoBehaviour
             }
         }
 
-       
+
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class TitleEscape_over : MonoBehaviour
+public class TitleEscape_over1 : MonoBehaviour
 {
     // Update is called once per frame
     void Update()

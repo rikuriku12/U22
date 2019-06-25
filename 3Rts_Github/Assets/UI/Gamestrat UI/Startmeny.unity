@@ -1368,17 +1368,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 751072808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14d58ea8dd8f887469e8fb2159a7f860, type: 3}
+  m_Script: {fileID: 11500000, guid: 28a1dafb9878d92488497f1eb906a24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameplay:
   - {fileID: 1645852150}
   - {fileID: 1861100683}
   - {fileID: 1417837463}
-  i: 0
   ani: {fileID: 0}
-  time: 0
-  cool: 0.7
 --- !u!1 &767754002 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 403790362987695757, guid: bd87b1d9cf5eb2a47be9dc1cfad18c30,
@@ -3560,7 +3557,7 @@ Animator:
   m_GameObject: {fileID: 1645852150}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2565bda48c4025648a60a732f7162e0c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 15fdc9b0d75aca842a84336ba43dac81, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
