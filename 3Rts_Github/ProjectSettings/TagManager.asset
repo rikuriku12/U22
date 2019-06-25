@@ -23,6 +23,7 @@ TagManager:
   - Boss_Sword
   - TopLine
   - BotLine
+  - P_Arrow
   layers:
   - Default
   - TransparentFX
