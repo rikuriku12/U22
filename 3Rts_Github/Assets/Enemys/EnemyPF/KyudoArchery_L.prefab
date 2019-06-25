@@ -42,7 +42,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd91e495259b134d898da75b96a90f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 5429771405862003093}
   pcr: 0
+  isHp: 0
 --- !u!1 &5429771405862002689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,6 +2138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 150
+  up: 0.1
 --- !u!114 &1488556415108550055
 MonoBehaviour:
   m_ObjectHideFlags: 0

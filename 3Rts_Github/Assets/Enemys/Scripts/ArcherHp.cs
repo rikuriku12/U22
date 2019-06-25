@@ -6,16 +6,32 @@ public class ArcherHp : MonoBehaviour
 {
     public int Hp;
     public float up = 0.1f;
+    float uiTime;
+    public bool hpUi;
     GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        hpUi = false;
         player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (hpUi)
+        {
+            uiTime += Time.deltaTime;
+        }
+        else
+        {
+            uiTime = 0;
+        }
+
+        if (uiTime >= 3f)
+        {
+            hpUi = false;
+        }
         if (Hp <= 0)
         {
             player.GetComponent<TurretSet>().militaryforce += up;
@@ -39,6 +55,13 @@ public class ArcherHp : MonoBehaviour
         if (other.gameObject.tag == "P_Sword")
         {
             Hp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
+            hpUi = true;
+        }
+
+        if (other.gameObject.tag == "P_Arrow")
+        {
+            Hp -= 5;
+            hpUi = true;
         }
     }
 

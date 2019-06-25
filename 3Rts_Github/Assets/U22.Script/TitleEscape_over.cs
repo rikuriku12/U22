@@ -10,16 +10,21 @@ public class TitleEscape_over : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey)
+        if (Input.GetButton("Start"))
         {
-            Invoke("GotoTitle", 0.5f);
+            Invoke("GotoGame", 0.5f);
+        }
+        if (Input.GetButton("Back"))
+        {
+            Application.Quit();
         }
     }
 
-    void GotoTitle()
+    void GotoGame()
     {
-        //FadeManager.Instance.LoadScene("Title", 0.5f);
-        SceneManager.LoadScene("Title");
+       
+        SceneManager.LoadScene("Game");
 
     }
+   
 }

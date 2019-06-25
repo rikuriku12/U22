@@ -290,6 +290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 100
+  up: 0.1
+  hpUi: 0
 --- !u!114 &2366572667921766921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,7 +1539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01505874cbc357a468f1ddad0f237efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8200068154423315255
+--- !u!114 &5983601461211456628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1546,10 +1548,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8353985737948681347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd91e495259b134d898da75b96a90f0, type: 3}
+  m_Script: {fileID: 11500000, guid: ecd27d1d34f70fb4aa4299b217c0314e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 3098891031382445489}
   pcr: 0
+  isMelee: 0
 --- !u!1001 &2732699184767201017
 PrefabInstance:
   m_ObjectHideFlags: 0

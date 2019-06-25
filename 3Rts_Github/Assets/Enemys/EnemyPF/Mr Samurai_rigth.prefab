@@ -1477,6 +1477,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 100
+  up: 0.1
+  hpUi: 0
 --- !u!114 &1537473267196688918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,7 +1525,7 @@ Transform:
   m_Father: {fileID: 3753376459212950633}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 49.783955, y: -50.54104, z: -0.889122}
---- !u!114 &751686001097892505
+--- !u!114 &2866326604275638284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1532,10 +1534,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8234427510706678435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd91e495259b134d898da75b96a90f0, type: 3}
+  m_Script: {fileID: 11500000, guid: ecd27d1d34f70fb4aa4299b217c0314e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 3755983017359040241}
   pcr: 0
+  isMelee: 0
 --- !u!114 &6767758613876313315
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2306,6 +2306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 100
+  up: 0.1
 --- !u!136 &912671944147866526
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2965,6 +2966,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526552383063920043, guid: 8841fc88c7499774a84b6eeef3348fbc,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 9165512787775721950}
+    - target: {fileID: 7526552383063920043, guid: 8841fc88c7499774a84b6eeef3348fbc,
+        type: 3}
+      propertyPath: isHp
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8841fc88c7499774a84b6eeef3348fbc, type: 3}

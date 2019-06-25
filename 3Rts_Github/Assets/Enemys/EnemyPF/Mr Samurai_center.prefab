@@ -1070,6 +1070,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 100
+  up: 0.1
+  hpUi: 0
 --- !u!114 &2556280740023622061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,7 +1525,7 @@ Transform:
   m_Father: {fileID: 3921168556740168912}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -5.7343626, y: 11.747459, z: 53.04648}
---- !u!114 &636801623273635304
+--- !u!114 &50678096813047044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1532,10 +1534,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3999124693451685133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd91e495259b134d898da75b96a90f0, type: 3}
+  m_Script: {fileID: 11500000, guid: ecd27d1d34f70fb4aa4299b217c0314e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 3918813509090593656}
   pcr: 0
+  isMelee: 0
 --- !u!114 &6487859906589631440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1555,11 +1559,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3923908682154480614}
     m_Modifications:
-    - target: {fileID: 6927792343166535274, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas_mr_C
-      objectReference: {fileID: 0}
     - target: {fileID: 6001118218191938740, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1664,6 +1663,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927792343166535274, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas_mr_C
       objectReference: {fileID: 0}
     - target: {fileID: 3164828142043097749, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8,
         type: 3}
