@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hpvar : MonoBehaviour
+public class HpvarArcher : MonoBehaviour
 {
     GameObject player;
     [SerializeField]GameObject enemy;
     [SerializeField]bool pcr;                       //HPバーの可視化
-    [SerializeField]bool isHp;
-
+    [SerializeField]bool isMelee;
+    bool isAcrher;
     void Start()
     {
         transform.GetChild(0).gameObject.SetActive(false);
@@ -20,9 +20,13 @@ public class Hpvar : MonoBehaviour
     void Update()
     {
         pcr = player.GetComponent<PlayerController>().HPvar;
-        isHp = enemy.GetComponent<MeleeEnemyHp>().hpUi;
+        
+            //isMelee = enemy.GetComponent<MeleeEnemyHp>().hpUi;
+        
+            isAcrher = enemy.GetComponent<ArcherHp>().hpUi;
+        
 
-        if (pcr == true || isHp == true)
+        if (pcr == true || isMelee == true)
         {
             transform.GetChild(0).gameObject.SetActive(true);
 

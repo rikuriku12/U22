@@ -28,6 +28,7 @@ public class MeleeEnemyHp : MonoBehaviour
         {
             uiTime = 0;
         }
+
         if (uiTime >= 3f)
         {
             hpUi = false;
