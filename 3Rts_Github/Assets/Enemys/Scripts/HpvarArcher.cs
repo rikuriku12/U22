@@ -7,8 +7,8 @@ public class HpvarArcher : MonoBehaviour
     GameObject player;
     [SerializeField]GameObject enemy;
     [SerializeField]bool pcr;                       //HPバーの可視化
-    [SerializeField]bool isMelee;
-    bool isAcrher;
+    [SerializeField]bool isAcrher;
+
     void Start()
     {
         transform.GetChild(0).gameObject.SetActive(false);
@@ -26,7 +26,7 @@ public class HpvarArcher : MonoBehaviour
             isAcrher = enemy.GetComponent<ArcherHp>().hpUi;
         
 
-        if (pcr == true || isMelee == true)
+        if (pcr == true || isAcrher == true)
         {
             transform.GetChild(0).gameObject.SetActive(true);
 
