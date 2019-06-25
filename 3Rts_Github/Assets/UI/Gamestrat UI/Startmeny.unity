@@ -2897,7 +2897,7 @@ Animator:
   m_GameObject: {fileID: 1417837463}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 71f596f7066f37246be328576743f650, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9eeb7ca074ed2364cbd167fbcc3c4bb6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3453,8 +3453,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289572269
-  m_fontColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+    rgba: 4288914339
+  m_fontColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3557,7 +3557,7 @@ Animator:
   m_GameObject: {fileID: 1645852150}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 15fdc9b0d75aca842a84336ba43dac81, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9aefa7fce2da82d45a7835ceb17eb719, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4196,7 +4196,7 @@ Animator:
   m_GameObject: {fileID: 1861100683}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3a5a13f06d44c05468e2366b0afce0ad, type: 2}
+  m_Controller: {fileID: 9100000, guid: 165550c940d75c1499d67fb737b07f25, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
