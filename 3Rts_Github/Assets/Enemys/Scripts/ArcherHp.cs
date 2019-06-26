@@ -58,6 +58,7 @@ public class ArcherHp : MonoBehaviour
         {
             Hp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
             hpUi = true;
+            particle.Play();
         }
 
         if (other.gameObject.tag == "P_Arrow")

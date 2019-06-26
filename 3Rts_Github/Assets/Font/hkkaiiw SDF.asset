@@ -20,7 +20,7 @@ MonoBehaviour:
     Name: HakusyuKaisyoOiwai
     PointSize: 170
     Scale: 0
-    CharacterCount: 28
+    CharacterCount: 31
     LineHeight: 170
     Baseline: 0
     Ascender: 146.125
@@ -38,9 +38,27 @@ MonoBehaviour:
     Padding: 5
     AtlasWidth: 512
     AtlasHeight: 512
-  atlas: {fileID: 28066471760296048}
+  atlas: {fileID: 28027497797626360}
   m_glyphInfoList:
   - id: 45
+    x: 6
+    y: 517
+    width: 0
+    height: 0
+    xOffset: 0
+    yOffset: 0
+    xAdvance: 85
+    scale: 1
+  - id: 48
+    x: 6
+    y: 517
+    width: 0
+    height: 0
+    xOffset: 0
+    yOffset: 0
+    xAdvance: 85
+    scale: 1
+  - id: 58
     x: 6
     y: 517
     width: 0
@@ -292,6 +310,15 @@ MonoBehaviour:
     yOffset: 0
     xAdvance: 170
     scale: 1
+  - id: 65306
+    x: 6
+    y: 517
+    width: 0
+    height: 0
+    xOffset: 0
+    yOffset: 0
+    xAdvance: 170
+    scale: 1
   m_kerningInfo:
     kerningPairs: []
   m_kerningPair:
@@ -319,7 +346,7 @@ MonoBehaviour:
     atlasWidth: 512
     atlasHeight: 512
     characterSetSelectionMode: 7
-    characterSequence: "\u52DD\u5229\u4E00\u59EB\u8A0E\u6226\u6557\u5317\u6557\u6226\u591C\u5343\u82B1\u4EC7\u83EF\u96C5\u958B\u5E55\u9589\u5E55\u6F14\u7DF4\u4F53\u653B\u6483\u5175\u5F37\u5316\u529B\u30FC-"
+    characterSequence: "\u52DD\u5229\u4E00\u59EB\u8A0E\u6226\u6557\u5317\u6557\u6226\u591C\u5343\u82B1\u4EC7\u83EF\u96C5\u958B\u5E55\u9589\u5E55\u6F14\u7DF4\u4F53\u653B\u6483\u5175\u5F37\u5316\u529B\u30FC-\uFF1A:00"
     referencedFontAssetGUID: 
     referencedTextAssetGUID: 
     fontStyle: 0
@@ -385,7 +412,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 28066471760296048}
+        m_Texture: {fileID: 28027497797626360}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -453,7 +480,7 @@ Material:
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
---- !u!28 &28066471760296048
+--- !u!28 &28027497797626360
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
