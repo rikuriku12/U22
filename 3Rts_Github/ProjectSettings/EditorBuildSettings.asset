@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/bat.unity
     guid: 63c17d322aba4474993c88e83e8fd112
-  - enabled: 1
+  - enabled: 0
     path: Assets/UI/Gamestrat UI/Title.unity
     guid: 4b6b081584c43144d857e01d26a43c99
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Startmenu.unity
     guid: ca092f4c5111c724e939c0f924af8c94
+  - enabled: 1
+    path: Assets/UI/Gamestrat UI/Startmeny.unity
+    guid: 05cbd5f6ef49f814994060f539dcbd3c
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 72745d4b96fa539449c51dc9d53a4204
