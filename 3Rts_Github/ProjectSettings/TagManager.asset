@@ -14,7 +14,6 @@ TagManager:
   - EnemyCore
   - AllyCore
   - Enemy
-  - EnemyArrow
   - P_Sword
   - NPC_Sword"
   - TowerBurret
@@ -24,6 +23,7 @@ TagManager:
   - TopLine
   - BotLine
   - P_Arrow
+  - Enemy_Arrow
   layers:
   - Default
   - TransparentFX
