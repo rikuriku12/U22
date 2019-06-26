@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class BossCtrl : MonoBehaviour
 {
     public int Hp;
-    // Start is called before the first frame update
+    public ParticleSystem particle_arrow;
+    public ParticleSystem particle_sword;
+        // Start is called before the first frame update
     void Start()
     {
-        
+        particle_arrow.Stop();
+        particle_sword.Stop();
     }
 
     // Update is called once per frame
@@ -27,6 +30,13 @@ public class BossCtrl : MonoBehaviour
         if(other.gameObject.tag == "P_Sword")
         {
             Hp -= GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().AttackPower + 50;
+            particle_sword.Play();
+        }
+        if (other.gameObject.tag == "P_Arrow")
+        {
+            Hp -= 5;
+            particle_arrow.Play();
+            Debug.Log("5");
         }
     }
 }

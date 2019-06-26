@@ -9,13 +9,15 @@ public class ArcherHp : MonoBehaviour
     float uiTime;
     public bool hpUi;
     GameObject player;
-    public ParticleSystem particle;
+    public ParticleSystem particle_arrow;
+    public ParticleSystem particle_sword;
     // Start is called before the first frame update
     void Start()
     {
         hpUi = false;
         player = GameObject.FindWithTag("Player");
-        particle.Stop();
+        particle_arrow.Stop();
+        particle_sword.Stop();
     }
 
     // Update is called once per frame
@@ -53,19 +55,20 @@ public class ArcherHp : MonoBehaviour
         if (other.gameObject.tag == "NPC_Sword")
         {
             Hp -= 20;
+            particle_sword.Play();
         }
         if (other.gameObject.tag == "P_Sword")
         {
             Hp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
             hpUi = true;
-            particle.Play();
+            particle_sword.Play();
         }
 
         if (other.gameObject.tag == "P_Arrow")
         {
             Hp -= 5;
             hpUi = true;
-            particle.Play();
+            particle_arrow.Play();
         }
     }
 
