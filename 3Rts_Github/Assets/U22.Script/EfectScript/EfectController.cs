@@ -14,7 +14,29 @@ public class EfectController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        particle.Play();
+
         if (other.gameObject.tag == "Enemy")
+        {
+            particle.Play();
+        }
+
+        if (other.gameObject.tag == "Tower_center")
+        {
+            particle.Play();
+        }
+
+        if (other.gameObject.tag == "Tower_right")
+        {
+            particle.Play();
+        }
+
+        if (other.gameObject.tag == "Tower_left")
+        {
+            particle.Play();
+        }
+
+        if (other.gameObject.tag == "EnemyCore")
         {
             particle.Play();
         }
