@@ -13,8 +13,11 @@ public class EfectController2 : MonoBehaviour
         particle.Stop();  //最初は止める
     }
 
-    void Effect2()
+    private void OnTriggerEnter(Collider other)
     {
-        particle.Play();
+        if (other.gameObject.tag == "Enemy")
+        {
+            particle.Play();
+        }
     }
 }

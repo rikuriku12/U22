@@ -9,11 +9,13 @@ public class MeleeEnemyHp : MonoBehaviour
     float uiTime;
     public bool hpUi;
     GameObject player;
+    public ParticleSystem particle;
     // Start is called before the first frame update
     void Start()
     {
         hpUi = false;
         player = GameObject.FindWithTag("Player");
+        particle.Play();
     }
 
     // Update is called once per frame
@@ -58,6 +60,7 @@ public class MeleeEnemyHp : MonoBehaviour
         {
             Hp -= 5;
             hpUi = true;
+            particle.Play();
         }
         
 

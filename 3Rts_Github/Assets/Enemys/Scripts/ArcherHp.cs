@@ -9,11 +9,13 @@ public class ArcherHp : MonoBehaviour
     float uiTime;
     public bool hpUi;
     GameObject player;
+    public ParticleSystem particle;
     // Start is called before the first frame update
     void Start()
     {
         hpUi = false;
         player = GameObject.FindWithTag("Player");
+        particle.Stop();
     }
 
     // Update is called once per frame
@@ -62,6 +64,7 @@ public class ArcherHp : MonoBehaviour
         {
             Hp -= 5;
             hpUi = true;
+            particle.Play();
         }
     }
 
