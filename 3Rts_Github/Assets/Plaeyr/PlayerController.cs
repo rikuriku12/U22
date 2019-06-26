@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
     [SerializeField]
     private float boost;
+    [SerializeField] int count,countMax;
+    [SerializeField]bool charge;
     public Animator animCon;  //  アニメーションするための変数
     public AnimatorStateInfo stateInfo;
     public bool HPvar { get; set; }
@@ -28,9 +30,18 @@ public class PlayerController : MonoBehaviour
     private float MoveSpeedSave;
 
     ChangeEquip equip;
+    public ParticleSystem particle;
 
+    //    foreach (Transform child in particle)
+    //    {
+    //                    foreach (Transform childs in child)
+    //           {
+    //                        childs.gameObject.GetComponent<ParticleSystem>().Stop();
+    //           }
+    //    }
     private void Start()
     {
+        particle.Stop();  //最初は止める
         animCon = GetComponent<Animator>(); // アニメーターのコンポーネントを参照する
         stateInfo = animCon.GetCurrentAnimatorStateInfo(0);
         velocity = Vector3.zero;
@@ -147,6 +158,33 @@ public class PlayerController : MonoBehaviour
                 (!animCon.IsInTransition(0)))
             {
                 animCon.SetBool("Attack", true);
+                charge = true;
+            }
+            if((Input.GetMouseButtonUp(0) && !Input.GetKeyDown("z")) || ((Input.GetButtonUp("joystick X"))
+                && !Input.GetButton("L1")))
+            {
+                charge = false;
+                if (count > countMax)
+                {
+                    animCon.SetTrigger("charge");
+                    charge = false;
+                }
+                count = 0;
+            }
+            if (charge)
+            {
+                if((Input.GetButton("joystick X")) && (!Input.GetButton("L1")))
+                {
+                    count++;
+                }
+                if (count > countMax)
+                {
+                    particle.Play();
+                }
+            }
+            else
+            {
+                particle.Stop();
             }
         }
         if (equip.weapons[equip.equipment].name == "Elven Long Bow")
