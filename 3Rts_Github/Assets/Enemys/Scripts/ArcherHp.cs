@@ -66,7 +66,7 @@ public class ArcherHp : MonoBehaviour
 
         if (other.gameObject.tag == "P_Arrow")
         {
-            Hp -= 5;
+            Hp -= 40;
             hpUi = true;
             particle_arrow.Play();
         }

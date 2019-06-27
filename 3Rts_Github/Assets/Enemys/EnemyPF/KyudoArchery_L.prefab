@@ -2139,7 +2139,8 @@ MonoBehaviour:
   Hp: 150
   up: 0.1
   hpUi: 0
-  particle: {fileID: 1721222793440713234}
+  particle_arrow: {fileID: 1721222793440713234}
+  particle_sword: {fileID: 1721222793440713234}
 --- !u!114 &1488556415108550055
 MonoBehaviour:
   m_ObjectHideFlags: 0

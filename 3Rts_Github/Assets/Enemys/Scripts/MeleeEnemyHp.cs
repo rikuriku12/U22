@@ -62,7 +62,7 @@ public class MeleeEnemyHp : MonoBehaviour
         
         if (other.gameObject.tag == "P_Arrow")
         {
-            Hp -= 5;
+            Hp -= 25;
             hpUi = true;
             particle_arrow.Play();
         }

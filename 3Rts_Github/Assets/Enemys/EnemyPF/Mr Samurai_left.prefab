@@ -293,7 +293,8 @@ MonoBehaviour:
   Hp: 100
   up: 0.1
   hpUi: 0
-  particle: {fileID: 4139730146971681231}
+  particle_arrow: {fileID: 4139730146971681231}
+  particle_sword: {fileID: 4139730146971681231}
 --- !u!114 &2366572667921766921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +310,7 @@ MonoBehaviour:
   e_Animator: {fileID: 3050375714537484249}
   targget: {fileID: 0}
   plyerDistance: 10
-  stopDistance: 2
+  stopDistance: 1.6
   change: 0
 --- !u!1 &3098911284644267589
 GameObject:

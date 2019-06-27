@@ -2309,7 +2309,8 @@ MonoBehaviour:
   Hp: 100
   up: 0.1
   hpUi: 0
-  particle: {fileID: 8318001272108378248}
+  particle_arrow: {fileID: 8318001272108378248}
+  particle_sword: {fileID: 8318001272108378248}
 --- !u!136 &912671944147866526
 CapsuleCollider:
   m_ObjectHideFlags: 0

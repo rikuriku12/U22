@@ -179,7 +179,8 @@ MonoBehaviour:
   Hp: 150
   up: 0.1
   hpUi: 0
-  particle: {fileID: 6024158974217236653}
+  particle_arrow: {fileID: 6024158974217236653}
+  particle_sword: {fileID: 6024158974217236653}
 --- !u!195 &8489246795312819808
 NavMeshAgent:
   m_ObjectHideFlags: 0
