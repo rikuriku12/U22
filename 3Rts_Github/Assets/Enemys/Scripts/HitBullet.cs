@@ -4,12 +4,21 @@ using UnityEngine;
 
 namespace Game.Enemy
 {
+    
     public class HitBullet : MonoBehaviour
     {
+        ParticleSystem Fire;
+        private void Start()
+        {
+            // 2秒で弾が消える
+            Fire = GetComponent<ParticleSystem>();
+            
+        }
         private void Update()
         {
             // 2秒で弾が消える
             Destroy(gameObject, 2f);
+            Fire.Stop();
         }
         //private void OnTriggerEnter(Collider collider)
         //{

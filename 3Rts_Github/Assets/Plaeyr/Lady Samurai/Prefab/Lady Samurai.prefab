@@ -595,7 +595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4056063412343558}
   - component: {fileID: 95685920248245596}
-  - component: {fileID: 1442744048633017268}
+  - component: {fileID: 788693277794225526}
   - component: {fileID: 1662551570606921458}
   - component: {fileID: 4257441373363987955}
   - component: {fileID: 1025234926919744735}
@@ -641,7 +641,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1442744048633017268
+--- !u!114 &788693277794225526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -650,12 +650,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1166246725927752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ca2cebc99502d4ba9f08003e4c1ac5, type: 3}
+  m_Script: {fileID: 11500000, guid: 24469e3f6e581524d959344a052ed1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targget: {fileID: 0}
+  botTower: []
+  midTower: []
+  topTower: []
+  target: {fileID: 0}
   enemyDistance: 10
   stopDistance: 2
+  isBotLine: 0
 --- !u!195 &1662551570606921458
 NavMeshAgent:
   m_ObjectHideFlags: 0
