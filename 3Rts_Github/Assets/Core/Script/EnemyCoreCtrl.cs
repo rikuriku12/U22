@@ -17,7 +17,8 @@ public class EnemyCoreCtrl : MonoBehaviour
     {
         if(EnemyCoreHp <= 0)
         {
-            SceneManager.LoadScene("Clear");
+            Destroy(this.gameObject);
+            //SceneManager.LoadScene("Clear");
         }
     }
 
