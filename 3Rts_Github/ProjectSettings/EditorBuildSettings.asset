@@ -14,16 +14,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Startmenu.unity
     guid: ca092f4c5111c724e939c0f924af8c94
-  - enabled: 0
+  - enabled: 1
     path: Assets/UI/Gamestrat UI/Startmeny.unity
     guid: 05cbd5f6ef49f814994060f539dcbd3c
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 72745d4b96fa539449c51dc9d53a4204
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Clear.unity
     guid: 2f6044c1330e2174ab7461e98ca63e2d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Over.unity
     guid: 06c749de9a479df4382583ee8ce2a4b2
   m_configObjects: {}

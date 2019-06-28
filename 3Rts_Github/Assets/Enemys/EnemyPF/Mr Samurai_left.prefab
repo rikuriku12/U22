@@ -1495,7 +1495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6194744901709722339}
-  - component: {fileID: 1374153401499166033}
+  - component: {fileID: 712134165803670340}
   m_Layer: 0
   m_Name: collider
   m_TagString: Enemy_Sword
@@ -1517,7 +1517,7 @@ Transform:
   m_Father: {fileID: 3105111884903912751}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1374153401499166033
+--- !u!65 &712134165803670340
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1528,7 +1528,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.50626814, y: 0.009573042, z: 0.38843536}
+  m_Size: {x: 0.50626814, y: 0.009573042, z: 1.2}
   m_Center: {x: -0.024789631, y: -0.04286632, z: -0.12321997}
 --- !u!114 &7739007899936038979
 MonoBehaviour:

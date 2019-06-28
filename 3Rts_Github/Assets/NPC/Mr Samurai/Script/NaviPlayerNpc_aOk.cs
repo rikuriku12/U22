@@ -31,6 +31,8 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
     bool isTopLine = false;
     //bool isMidLine = false;
 
+    [SerializeField]bool enemyAttack;
+
     private float searchTime = 0;//serchTagの探す時間
 
     void Start()
@@ -70,15 +72,54 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
         {
             if (isBotLine)
             {
+                if (botTower[0].name == "LeftPoint")
+                {
+                    Transform hoge = botTower[0];
+                    if (botTower.Length == 1)
+                    {
+                        botTower[0] = core.transform;
+                    }
+                    else
+                    {
+                        botTower[0] = botTower[1];
+                        botTower[1] = hoge;
+                    }
+                }
                 target = botTower[0].transform;
             }
             else if (isTopLine)
             {
+                if (topTower[0].name == "RightPoint")
+                {
+                    Transform hoge = topTower[0];
+                    if (topTower.Length == 1)
+                    {
+                        topTower[0] = core.transform;
+                    }
+                    else
+                    {
+                        topTower[0] = topTower[1];
+                        topTower[1] = hoge;
+                    }
+                }
                 target = topTower[0].transform;
             }
 
             else if (!isTopLine && !isBotLine)
             {
+                if (midTower[0].name == "CenterPoint")
+                {
+                    Transform hoge = midTower[0];
+                    if (midTower.Length == 1)
+                    {
+                        midTower[0] = core.transform;
+                    }
+                    else
+                    {
+                        midTower[0] = midTower[1];
+                        midTower[1] = hoge;
+                    }
+                }
                 target = midTower[0].transform;
             }
             else
@@ -99,39 +140,25 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
             // 走るアニメーションの再生
             p_Animator.SetBool("IsRun", true);
         }
-
-        // nearEnemyの中にオブジェクトが入っていたら
-        if (nearEnemy)
+        if (enemyAttack)
         {
-            // EnemyとNPCの距離
-            agentDistance = Vector3.Distance(this.agent.transform.position,
-                                                nearEnemy.transform.position);
-            // Enemyとの距離が近くのとき
-            if (agentDistance <= enemyDistance)
+            // nearEnemyの中にオブジェクトが入っていたら
+            if (nearEnemy)
             {
-                // 目的地をEnemyに設定
-                target = nearEnemy.transform;
-                // AttackEnemy();
+                // EnemyとNPCの距離
+                agentDistance = Vector3.Distance(this.agent.transform.position,
+                                                    nearEnemy.transform.position);
+                // Enemyとの距離が近くのとき
+                if (agentDistance <= enemyDistance)
+                {
+                    // 目的地をEnemyに設定
+                    target = nearEnemy.transform;
+                    // AttackEnemy();
+                }
             }
             else
             {
-                if (isBotLine)
-                {
-                    ChaseTower("Tower_left", "LeftPoint", botTower);
-
-                }
-                else if (isTopLine)
-                {
-                    ChaseTower("Tower_rigth", "RightPoint", topTower);
-                }
-                else if (!isTopLine && !isBotLine)
-                {
-                    ChaseTower("Tower_center", "centerPoint", midTower);
-                }
-                else
-                {
-                    target = core.transform;
-                }
+                enemyAttack = false;
             }
         }
         else
@@ -160,17 +187,6 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
             {
                 // Naviを入れる
                 agent.GetComponent<NavMeshAgent>().isStopped = false;
-            }
-
-
-            //サーチ時間
-            float limitTime = 1.0f;
-            if (searchTime >= limitTime)
-            {
-                //最も近かった、"Enemy"タグのオブジェクトを取得
-                nearEnemy = serchTag(gameObject, "Enemy");
-                //経過時間を初期化
-                searchTime = 0;
             }
         }
 
@@ -294,6 +310,9 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
                     lane_Tower[1] = hoge;
                 }
             }
+            //最も近かった、"Enemy"タグのオブジェクトを取得
+            nearEnemy = serchTag(gameObject, "Enemy");
+
             searchTime = 0;
         }
         if (lane_Tower[0])
@@ -360,7 +379,20 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
             }
         }
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "EnemyArrow")
+        {
+            enemyAttack = true;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy_Sword")
+        {
+            enemyAttack = true;
+        }
+    }
     //private void OnTriggerStay(Collider other)
     //{
     //    //Debug.Log("Trigger:" + other.gameObject.tag);
