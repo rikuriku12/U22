@@ -24,6 +24,8 @@ TagManager:
   - BotLine
   - P_Arrow
   - Enemy_Arrow
+  - EnemyArrow
+  - MidLine
   layers:
   - Default
   - TransparentFX
