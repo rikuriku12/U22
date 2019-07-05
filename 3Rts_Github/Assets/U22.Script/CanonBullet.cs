@@ -9,22 +9,26 @@ public class CanonBullet : MonoBehaviour
     private Vector3 vec;
     private GameObject nearObj;         //最も近いオブジェクト
     private float searchTime = 0;    //経過時間
+  
 
     // Start is called before the first frame update
     void Start()
     {
         //最も近かったオブジェクトを取得
+       // nearObj = serchTag(gameObject, "Player");
         nearObj = serchTag(gameObject, "Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        /* GameObject player = GameObject.FindGameObjectWithTag("Enemy");
-         target = player.transform;
+        //GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player_npc = GameObject.FindGameObjectWithTag("Player");
+
+         target = player_npc.transform;
          float step = Time.deltaTime * speed;
-         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
-     }*/
+         transform.position = Vector3.MoveTowards(transform.position, player_npc.transform.position, step);
+     
 
         //経過時間を取得
         searchTime += Time.deltaTime;
@@ -32,17 +36,14 @@ public class CanonBullet : MonoBehaviour
         if (searchTime >= 1.0f)
         {
             //最も近かったオブジェクトを取得
+            //nearObj = serchTag(gameObject, "Player");
             nearObj = serchTag(gameObject, "Player");
             //経過時間を初期化
             searchTime = 0;
         }
-        float step = Time.deltaTime * speed;
+         step = Time.deltaTime * speed;
         transform.position = Vector3.MoveTowards(transform.position, nearObj.transform.position, step);
-        //対象の位置の方向を向く
-        //transform.LookAt(nearObj.transform);
-
-        //自分自身の位置から相対的に移動する
-        //transform.Translate(Vector3.forward * 0.01f);
+      
     }
 
     //指定されたタグの中で最も近いものを取得

@@ -13,13 +13,13 @@ public class OverScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("joystick B"))
+        if (Input.GetButton("Start"))
         {
             SceneManager.LoadScene("Game");
         }
-        if(Input.GetButton("joystick A"))
+        if(Input.GetButton("Back"))
         {
-            SceneManager.LoadScene("Title");
+            SceneManager.LoadScene("Startmeny");
         }
     }
 }

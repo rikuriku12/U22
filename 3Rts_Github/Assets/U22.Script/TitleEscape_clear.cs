@@ -10,7 +10,7 @@ public class TitleEscape_clear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey)
+        if (Input.anyKeyDown)
         {
             Invoke("GotoTitle", 0.5f);
         }
@@ -19,6 +19,6 @@ public class TitleEscape_clear : MonoBehaviour
     void GotoTitle()
     {
         //FadeManager.Instance.LoadScene("Title", 0.5f);
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("Startmeny");
     }
 }

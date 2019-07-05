@@ -13,18 +13,35 @@ public class CanonAt : MonoBehaviour
     private GameObject nearObj;         //最も近いオブジェクト
     private float searchTime = 0;    //経過時間
     int cooltime;
+    public int BurretModeTriggerP;
+    CanonAt CanonAtSC;
+    CanonatNpc CanonNPCAtSC;
+    public GameObject CanonB;
+
     // Start is called before the first frame update
     void Start()
     {
+
         //nearObj = serchTag(gameObject, "Player");
+
+        CanonNPCAtSC = CanonB.GetComponent<CanonatNpc>();
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        if (CanonNPCAtSC.BurretModeTriggerN == 1)
+        {
+            this.gameObject.GetComponent<CanonAt>().enabled = false;
+            BurretModeTriggerP = 0;
+            CanonNPCAtSC.enabled = true;
+        }
+        //else if(CanonNPCAtSC.BurretModeTriggerN == 0)
+        //{
+        //    this.GetComponent<CanonAt>().enabled = true;
+        //}
         cooltime++;
-
 
         searchTime += Time.deltaTime;
 
@@ -49,7 +66,7 @@ public class CanonAt : MonoBehaviour
         }
         //自分自身の位置から相対的に移動する
         //transform.Translate(Vector3.forward * 0.01f);
-        
+
     }
 
     //指定されたタグの中で最も近いものを取得
@@ -85,8 +102,11 @@ public class CanonAt : MonoBehaviour
 
     public void OnTriggerStay(Collider ATRange)
     {
+
         if (ATRange.gameObject.tag == "Player")
         {
+            //CanonNPCAtSC.enabled = false;
+            BurretModeTriggerP = 1;
             if (searchTime >= 1.0f)
             {
                 //最も近かったオブジェクトを取得
@@ -94,35 +114,34 @@ public class CanonAt : MonoBehaviour
                 //経過時間を初期化
                 searchTime = 0;
             }
-            // float step = Time.deltaTime * speed;
-            //transform.position = Vector3.MoveTowards(transform.position, nearObj.transform.position, step);
-            //対象の位置の方向を向く
-            transform.LookAt(nearObj.transform);
-
-            //自分自身の位置から相対的に移動する
-            //transform.Translate(Vector3.forward * 0.01f);
-            //this.transform.LookAt(this.nearObj.transform.position);
-
+            //transform.LookAt(nearObj.transform);
             if (cooltime >= 60)
             {
                 if (ATRange.gameObject.tag == "Player")
                 {
-                    StartCoroutine("Turret");//※3
+                    StartCoroutine("Turret");
                     cooltime = 0;
 
                 }
             }
         }
     }
-    IEnumerator Turret()//※3
-    {
 
-        yield return new WaitForSeconds(0.5f);//※3
-        //Vector3 force;//※3
+    //public void OnTriggerExit(Collider other)
+    //{
+    //    if(other.gameObject.tag == "Player")
+    //}
+
+    public IEnumerator Turret()//※3
+    {
+        //BurretModeTriggerP = 1;
+        yield return new WaitForSeconds(0.5f);//※3 //Vector3 force;//※3
+
         GameObject ObjBs = GameObject.Instantiate(ObjB) as GameObject;//※3
         ObjBs.transform.position = muzzle.position;//※3
                                                    //force = this.gameObject.transform.forward * speed;//※3
                                                    //Destroy(bullets.gameObject, 2);//※3
+
     }
 }
 

@@ -2136,7 +2136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d526d8ca41b6d4881ed2a4abac3c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 150
+  Hp: 50
   up: 0.1
   hpUi: 0
   particle_arrow: {fileID: 1721222793440713234}

@@ -18,6 +18,10 @@ public class Imdelete : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Player_NPC")
+        {
+            Destroy(this.gameObject);
+        }
         if (other.gameObject.tag == "Player")
         {
             Destroy(this.gameObject);

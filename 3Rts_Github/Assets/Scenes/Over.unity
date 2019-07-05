@@ -891,7 +891,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 488566433}
-  - component: {fileID: 488566432}
   m_Layer: 0
   m_Name: SceneMane
   m_TagString: Untagged
@@ -899,18 +898,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &488566432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488566431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a4f319db6138c4cab7d7d9dbab044b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &488566433
 Transform:
   m_ObjectHideFlags: 0
@@ -1683,7 +1670,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2038989313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182e6398f5442fd4d91d1f7251f8563c, type: 3}
+  m_Script: {fileID: 11500000, guid: ba596eecc4f5d2b47919951c6eda8963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2038989315
